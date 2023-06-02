@@ -23,7 +23,7 @@ class DeviceFactory extends Factory
             'address_ip'=> fake()->localIpv4(),
             'status_hd'=> fake()->randomElement(['không hoạt động','hoạt động']),
             'status_connect'=>  fake()->randomElement(['kết nối','không kết nối']),
-            'device_use'=> "khám tim mạch, khám mắt"
+            'device_sd'=> "khám tim mạch, khám mắt"
         ];
     }
 }

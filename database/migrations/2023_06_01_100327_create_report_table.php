@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('report', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->float('stt');
+            $table->string('name_service');
+            $table->dateTime('time_cap');
+            $table->string('status_tinhtrang');
+            $table->string('nguon_cap');
         });
     }
 

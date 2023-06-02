@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('address_ip');
             $table->string('status_hd');
             $table->string('status_connect');
-            $table->string('device_use');
-            $table->timestamps();
+            $table->string('device_sd');
+            $table->string('name_dangnhap');
         });
     }
 

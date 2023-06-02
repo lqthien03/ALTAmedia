@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('status', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('status_hd');
+            $table->string('status_connect');
+            $table->string('status_tinhtrang');
+            $table->string('status_complete');
+            
         });
     }
 
