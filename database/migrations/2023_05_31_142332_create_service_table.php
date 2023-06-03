@@ -12,13 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('service', function (Blueprint $table) {
-            $table->integer('id')->unique();
+            $table->integer('id')->primary('key');
             $table->string('ma_service');
             $table->string('name_service');
-            $table->string('mota');
-            $table->string('numerical_order');
-            $table->string('status');
-        });     
+            $table->text('mota');
+            $table->string('id_status');
+            $table->string('id_progression');
+            // $table->foreign('status')
+            // ->references('id')->on('status')
+            // ->constrained()
+            // ->onDelete('cascade');
+        });
     }
 
     /**

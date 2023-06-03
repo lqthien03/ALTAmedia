@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('report', function (Blueprint $table) {
-            $table->id();
-            $table->float('stt');
-            $table->string('name_service');
-            $table->dateTime('time_cap');
-            $table->string('status_tinhtrang');
-            $table->string('nguon_cap');
+            $table->integer('id')->primary('key');
+            $table->integer('id_service');
+            $table->integer('id_status');
+            $table->integer('id_progression');
         });
     }
 

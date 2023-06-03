@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role', function (Blueprint $table) {
-            $table->integer('role_id')->primary('key');
+        Schema::create('option_device', function (Blueprint $table) {
+            $table->integer('id_option')->primary('key');
             $table->string('name');
-            $table->string('mota');
-            $table->float('soluong');
         });
     }
 
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('role');
+        Schema::dropIfExists('option_device');
     }
 };

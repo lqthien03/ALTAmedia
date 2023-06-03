@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('device', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->primary('key');
             $table->string('ma_device');
             $table->string('name_device');
             $table->string('address_ip');
-            $table->string('status_hd');
-            $table->string('status_connect');
-            $table->string('device_sd');
-            $table->string('name_dangnhap');
+            $table->integer('id_option');
+            $table->integer('id_status');
+            $table->integer('id_user');
         });
     }
 
