@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PHPUnit\Framework\Attributes\After;
 
 return new class extends Migration
 {
@@ -12,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id();
             $table->string('name');
             $table->string('name_dangnhap');
             $table->string('email')->unique();
@@ -20,15 +21,16 @@ return new class extends Migration
             $table->string('password');
             $table->string('sdt');
             $table->string('img');
-            $table->integer('role_id') ;
+            $table->integer('role_id');
+            // $table->unsignedBigInteger('role_id')->after('id');
+            // $table->foreign('role_id')
+            // ->references('role_id')->on('role')
+            // ->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });
-        Schema::table('users',function (Blueprint $table){
-                $table->unsignedBigInteger('role_id');
-                $table->foreign('role_id')->references('id')->on('role')
-                ->onDelete('cascade');
-        });
+
     }
 
     /**

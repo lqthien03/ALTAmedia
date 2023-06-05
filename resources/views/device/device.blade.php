@@ -18,7 +18,7 @@
                     <a class="list-group-item list-group-item-action" href="/">Dashboard</a>
                     <a class="list-group-item list-group-item-action" href="/device">Thiết bị</a>
                     <a class="list-group-item list-group-item-action" href="/service">Dịch vụ</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Cấp số</a>
+                    <a class="list-group-item list-group-item-action" href="/progression">Cấp số</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-4">Báo cáo</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-4">Cài đặt hệ thống</a>
                 </div>
@@ -57,10 +57,10 @@
                                 <div style="float: right">
                                     <p style="margin-bottom: 5px">Từ khóa</p>
                                     <form class="d-flex text-center" role="search" style="width:300px">
-                                        <input class="form-control " type="search" placeholder="Search" aria-label="Search">    
+                                        <input class="form-control " type="search" placeholder="Search" aria-label="Search">
                                     </form>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <table class="table rounded table-bordered mt-2 ">
@@ -79,16 +79,16 @@
                             <tbody>
                               @foreach($devices as $item)
                               <tr>
-                                <th scope="row"></th>
-                                <td>{{$item->id}}</td>
+
+                                <th scope="row">{{$item->id}}</th>
                                 <td>{{$item->ma_device}}</td>
                                 <td>{{$item->name_device}}</td>
                                 <td>{{$item->address_ip}}</td>
                                 <td>{{$item->status_hd}}</td>
                                 <td>{{$item->status_connect}}</td>
                                 <td>{{$item->device_use}}</td>
-                                <td><a href="/device/detail/{id}">Chi tiết</a></td>
-                                <td><a href="/update">Cập nhật</a></td>
+                                <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
+                                <td><a href="/device/update/{{$item->id}}">Cập nhật</a></td>
                               </tr>
                             </tbody>
                             @endforeach
@@ -153,13 +153,15 @@
                                 <td><a href="/detail">Chi tiết</a></td>
                                 <td><a href="/update">Cập nhật</a></td>
                               </tr>
-                              
+
                             </tbody> --}}
                           </table>
                     </div>
-                    <div class="col-1"></div>
+                    <div class="col-1">
+                        <a href="{{url('/device/create_device')}}"><p>Thêm thiết bị</p></a>
+                    </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

@@ -34,7 +34,7 @@
         <a class="btn btn-info" href="{{ route('register') }}">Register</a>
         @endguest
         @endsection --}}
-        
+
 
 
         <div class="row">
@@ -46,7 +46,7 @@
                     <a class="list-group-item list-group-item-action" href="/">Dashboard</a>
                     <a class="list-group-item list-group-item-action" href="/device">Thiết bị</a>
                     <a class="list-group-item list-group-item-action" href="/service">Dịch vụ</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Cấp số</a>
+                    <a class="list-group-item list-group-item-action" href="/progression">Cấp số</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-4">Báo cáo</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-4">Cài đặt hệ thống</a>
                 </div>
@@ -93,14 +93,14 @@
                         <p>số thứ tự đã bỏ qua</p>
                     </table>
                     </a>
-                </div>    
                 </div>
-                
-                
+                </div>
+
+
 
                 <h4 id="list-item-2">Item 2</h4>
                 <p>...</p>
-                
+
             </div>
             </div>
             <div class="col-3">
@@ -113,11 +113,11 @@
                     <div class="col-7">
                     <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
                     </div>
-                </div>  
+                </div>
                 </a>
-                
+
             </div>
-            
+
             <div>
                 <h4 id="list-item-1">Tổng quan</h4>
                 <div class="row border border-info rounded mb-4">

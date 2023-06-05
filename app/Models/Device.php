@@ -21,7 +21,7 @@ class Device extends Model
     // public $device_use;
     protected $primaryKey = 'id';
     public $incrementing = true;
-   
+
 
     // public function __contruct($id,$ma_device,$name_device,$address_ip,$status_hd,$status_connect,$device_use){
     //     $this->id=$id;
@@ -43,5 +43,5 @@ class Device extends Model
     ];
     public $timestamps = true;
 
-    
+
 }

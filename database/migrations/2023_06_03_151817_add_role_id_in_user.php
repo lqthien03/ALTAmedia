@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role', function (Blueprint $table) {
-            // $table->integer('id')->primary('key');
-            $table->id();
-            $table->string('name');
-            $table->string('mota');
-            $table->float('soluong');
+        Schema::table('user', function (Blueprint $table) {
+            // $table->unsignedBigInteger('role_id')->after('id');
+            // $table->foreign('role_id')
+            // ->references('id')->on('role')
+            // ->onDelete('cascade');
+
         });
     }
 
@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('role');
+        Schema::table('user', function (Blueprint $table) {
+            //
+        });
     }
 };

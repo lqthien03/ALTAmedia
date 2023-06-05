@@ -18,8 +18,8 @@
                     <a class="list-group-item list-group-item-action" href="/">Dashboard</a>
                     <a class="list-group-item list-group-item-action" href="/device">Thiết bị</a>
                     <a class="list-group-item list-group-item-action" href="/service">Dịch vụ</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Cấp số</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Báo cáo</a>
+                    <a class="list-group-item list-group-item-action" href="/progression">Cấp số</a>
+                    <a class="list-group-item list-group-item-action" href="/report">Báo cáo</a>
                     <a class="list-group-item list-group-item-action" href="#list-item-4">Cài đặt hệ thống</a>
                 </div>
             </div>
@@ -50,12 +50,12 @@
                                 <div style="float: right">
                                     <p style="margin-bottom: 5px">Từ khóa</p>
                                     <form class="d-flex text-center" role="search" style="width:300px">
-                                        <input class="form-control " type="search" placeholder="Search" aria-label="Search">    
+                                        <input class="form-control " type="search" placeholder="Search" aria-label="Search">
                                     </form>
                                 </div>
                             </div>
                         </div>
-        
+
                         <table class="table rounded table-bordered mt-2 ">
                             <thead>
                               <tr>
@@ -70,8 +70,8 @@
                             <tbody>
                               @foreach($services as $item)
                               <tr>
-                                <th scope="row"></th>
-                                <td>{{$item->id}}</td>
+
+                                <th scope="row">{{$item->id}}</th>
                                 <td>{{$item->ma_service}}</td>
                                 <td>{{$item->name_service}}</td>
                                 <td>{{$item->mota}}</td>
@@ -81,57 +81,7 @@
                               </tr>
                             </tbody>
                             @endforeach
-                            {{-- <tbody>
-                              <tr>
-                                <th scope="row">KIO_01</th>
-                                <td>Kiosk</td>
-                                <td>Mô tả dịch vụ 1</td>
-                                <td>hoạt động</td>
-                                <td><a href="/detail_service">Chi tiết</a></td>
-                                <td><a href="/update_service">Cập nhật</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">KIO_01</th>
-                                <td>Kiosk</td>
-                                <td>ngưng hoạt động</td>
-                                <td>Ngưng hoạt động</td>
-                                <td><a href="/detail_service">Chi tiết</a></td>
-                                <td><a href="/update_service">Cập nhật</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">KIO_01</th>
-                                <td>Kiosk</td>
-                                <td>ngưng hoạt động</td>
-                                <td>Ngưng hoạt động</td>
-                                <td><a href="/detail_service">Chi tiết</a></td>
-                                <td><a href="/update_service">Cập nhật</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">KIO_01</th>
-                                <td>Kiosk</td>
-                                <td>ngưng hoạt động</td>
-                                <td>Ngưng hoạt động</td>
-                                <td><a href="/detail_service">Chi tiết</a></td>
-                                <td><a href="/update_service">Cập nhật</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">KIO_01</th>
-                                <td>Kiosk</td>
-                                <td>ngưng hoạt động</td>
-                                <td>Ngưng hoạt động</td>
-                                <td><a href="/detail_service">Chi tiết</a></td>
-                                <td><a href="/update_service">Cập nhật</a></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">KIO_01</th>
-                                <td>Kiosk</td>
-                                <td>ngưng hoạt động</td>
-                                <td>Ngưng hoạt động</td>
-                                <td><a href="/detail_service">Chi tiết</a></td>
-                                <td><a href="/update_service">Cập nhật</a></td>
-                              </tr>
-                              
-                            </tbody> --}}
+
                           </table>
                     </div>
                     <div class="col-1"></div>
