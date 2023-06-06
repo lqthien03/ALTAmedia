@@ -158,7 +158,7 @@
                           </table>
                     </div>
                     <div class="col-1">
-                        <a href="{{url('/device/create_device')}}"><p>Thêm thiết bị</p></a>
+                        <a href="{{url('/device/add')}}"><p>Thêm thiết bị</p></a>
                     </div>
                 </div>
 

@@ -36,7 +36,7 @@
                 <div class="rounded border border-secondary pt-2" style="height: 450px; margin-right:50px;">
                     <div style="margin-left: 15px;margin-right:15px">
                         <h4>Thông tin thiết bị</h4>
-                        <form action="{{route('device.create_device')}}" method="post">
+                        <form action="{{route('service.store')}}" method="post">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="mb-3">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-3">
-                    <button type="button" class="btn btn-warning"> <a href="{{route('device.device ')}}">Hủy bỏ</a> </button>
+                    <button type="button" class="btn btn-warning"> <a href="{{ route('device.device') }}">Hủy bỏ</a> </button>
                     <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
                 </div>
             </div>

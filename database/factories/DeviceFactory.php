@@ -16,7 +16,7 @@ class DeviceFactory extends Factory
      */
     public function definition(): array
     {
-        
+
         return [
             'ma_device'=>"KIO_" . (($n = rand(1,99)) > 10 ? $n : "0" . $n),
             'name_device'=> fake()->text(5),

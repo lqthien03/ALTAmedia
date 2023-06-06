@@ -12,15 +12,20 @@ class DeviceController extends Controller
         $devices= Device::all();
         return view('device.device',compact('devices'));
     }
-    public function CreateDevice(){
-        return view('device.create_device');
+    public function AddDevice(){
+        $devices_item = Device::all();
+        return view('device.create_device'  ,compact('devices_item'));
     }
     public function StoreDevice(Request $request){
         $request->validate([
-            '' => 'required',
-            'name' => 'required',
+            'name_device' => 'required',
+            'ma_device' => 'required',
+            'address_ip' => 'required',
+            'id_option' => 'required',
+            'id_user' => 'required',
+            'id_password' => 'required',
         ]);
-        Device::create($request->all());
+        Device::create($request->post());
         return redirect()->route('device.device');
 
     }

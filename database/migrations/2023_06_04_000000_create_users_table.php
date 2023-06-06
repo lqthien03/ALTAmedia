@@ -14,6 +14,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('role_id')->constrained(
+                table: 'roles', indexName: 'user_role_id'
+            );
             $table->string('name');
             $table->string('name_dangnhap');
             $table->string('email')->unique();
@@ -21,12 +24,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('sdt');
             $table->string('img');
-            $table->integer('role_id');
-            // $table->unsignedBigInteger('role_id')->after('id');
-            // $table->foreign('role_id')
-            // ->references('role_id')->on('role')
-            // ->onDelete('cascade');
-
             $table->rememberToken();
             $table->timestamps();
         });

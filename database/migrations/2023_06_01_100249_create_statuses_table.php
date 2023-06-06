@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role', function (Blueprint $table) {
-            // $table->integer('id')->primary('key');
+        Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('mota');
-            $table->float('soluong');
+            $table->string('status_hd');
+            $table->string('status_connect');
+            $table->string('status_tinhtrang');
+            $table->string('status_complete');
+
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('role');
+        Schema::dropIfExists('statuses');
     }
 };
