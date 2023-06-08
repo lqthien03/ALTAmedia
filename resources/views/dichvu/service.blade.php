@@ -29,7 +29,7 @@
                         {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
                     </div>
                     <div class="col-3">
-                        <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
+                        {{-- <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p> --}}
                     </div>
                 </div>
                 <h2>Danh sách thiết bị</h2>

@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Progression extends Model
+class Status_activate extends Model
 {
     use HasFactory;
-    public $table ="progressions";
+    public $table ="status_activates";
+
+    protected $fillable=[
+        'name',
+
+    ];
+    public $timestamps = true;
 }

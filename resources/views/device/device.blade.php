@@ -29,7 +29,7 @@
                         {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
                     </div>
                     <div class="col-3">
-                        <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
+                        {{-- <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p> --}}
                     </div>
                 </div>
                 <h2>Danh sách thiết bị</h2>
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <p style="margin-bottom: 5px">Trạng thái hoạt động</p>
-                                <select class="form-select" aria-label="Default select example">
+                                <select name="" class="form-select" aria-label="Default select example">
                                     <option selected>Tất cả</option>
                                     <option value="1">Hoạt động</option>
                                     <option value="2">Ngưng hoạt động</option>
@@ -79,14 +79,12 @@
                             <tbody>
                               @foreach($devices as $item)
                               <tr>
-
-                                <th scope="row">{{$item->id}}</th>
-                                <td>{{$item->ma_device}}</td>
+                                <th scope="row">{{$item->ma_device}}</th>
                                 <td>{{$item->name_device}}</td>
                                 <td>{{$item->address_ip}}</td>
-                                <td>{{$item->status_hd}}</td>
-                                <td>{{$item->status_connect}}</td>
-                                <td>{{$item->device_use}}</td>
+                                <td>{{$item->status->name}}</td>
+                                <td>{{$item->status->name}}</td>
+                                <td>{{$item->status->name}}</td>
                                 <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
                                 <td><a href="/device/update/{{$item->id}}">Cập nhật</a></td>
                               </tr>

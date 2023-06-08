@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use App\Models\User;
+use App\Models\Status_connect;
+use App\Models\Status_activate;
+use App\Models\Op;
 use Illuminate\Support\Facades\Hash;
 
 class DeviceController extends Controller
 {
     public function ShowDevice(){
-        $devices= Device::all();
+        $devices= Device::with('status')->get();
         return view('device.device',compact('devices'));
     }
     public function AddDevice(){

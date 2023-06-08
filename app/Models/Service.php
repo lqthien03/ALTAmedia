@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    public $table ="Service";
+    public $table ="Services";
     // public $id;
     // public $ma_service;
     // public $name_service;
     // public $mota;
     // public $numerical_order;
     // public $status;
-    
+
     // protected $primaryKey = 'devices_id';
-   
+
 
     // public function __contruct($id,$ma_device,$name_device,$address_ip,$status_hd,$status_connect,$device_use){
     //     $this->id=$id;

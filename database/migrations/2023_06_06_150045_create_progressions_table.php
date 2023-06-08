@@ -29,8 +29,8 @@ return new class extends Migration
             //     table: 'services', indexName: 'progressions_id_service'
             // );
 
-            // $table->foreignId('id_status')->constrained(
-            //     table: 'statuses', indexName: 'progressions_id_statuses'
+            // $table->foreignId('id_status_state')->constrained(
+            //     table: 'status_states', indexName: 'progressions_id_status_state'
             // );
             // $table->foreignId('id_supply')->constrained(
             //     table: 'supply', indexName: 'progressions_id_suppky'

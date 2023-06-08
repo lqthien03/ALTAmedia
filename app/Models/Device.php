@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class Device extends Model
 {
     use HasFactory;
-    public $table ="device";
+    public $table ="devices";
     // public $id;
     // public $ma_device;
     // public $name_device;
@@ -19,8 +19,8 @@ class Device extends Model
     // public $status_hd;
     // public $status_connect;
     // public $device_use;
-    protected $primaryKey = 'id';
-    public $incrementing = true;
+    // protected $primaryKey = 'id';
+    // public $incrementing = true;
 
 
     // public function __contruct($id,$ma_device,$name_device,$address_ip,$status_hd,$status_connect,$device_use){
@@ -37,11 +37,23 @@ class Device extends Model
         'ma_device',
         'name_device',
         'address_ip',
-        'status_hd',
+        'status_activete',
         'status_connect',
         'device_use',
     ];
     public $timestamps = true;
+
+    public function status()
+    {
+        # code...
+        // return $this->belongsTo(Status_activate::class,'id');
+        return $this->belongsTo(Status_connect::class,'id');
+        return  $this->belongsTo(User::class,'id');
+    }
+
+
+
+
 
 
 }

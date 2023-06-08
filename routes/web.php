@@ -33,22 +33,21 @@ Route::middleware('auth')->group(function () {
 });
 
 
-///////////////////////////////////
+////// DeviceController
 Route::controller(DeviceController::class)->group(function(){
     Route::get('/device','ShowDevice')->name('device.device');
-    Route::get('/device/detail/{id}', 'Detail_Device')->name('device.detail_device');
-    Route::get('/device/update', function () {
-        return view('device.update_device', ['title' => 'update']);
-    })->name('update_device');
+    Route::get('/device/detail/{id}', 'Detail_Device')->name('device.detail_device'); 
     Route::get('/device/add','AddDevice')->name('device.add');
     Route::post('device/store','StoreDevice')->name('service.store');
+    Route::get('/device/edit/{id}', 'EditDevice')->name('device.edit');
+    Route::post('/device/update', 'UpdateEDevice')->name('device.update');
     });
 
-//////////////////////////////////////
+//////////ProgressionController
 
 Route::get('/progression',[ProgressionController::class,'ShowProgression'])->name('progression.progression');
 
-/// device controller
+///////////ServiceController
 Route::get('/service',[ServiceController::class,'show'])->name('dichvu.service');
 Route::get('/service/detail',[ServiceController::class,'Detail_Service'])->name('dichvu.detail_service');
 Route::get('/update', function () {

@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('ma_device');
             $table->string('name_device');
             $table->string('address_ip');
-            // $table->integer('id_option');
-            // $table->integer('id_status');
 
             $table->foreignId('id_user')->constrained(
                 table: 'users', indexName: 'devices_id_user'
@@ -25,8 +23,11 @@ return new class extends Migration
             $table->foreignId('id_option')->constrained(
                 table: 'options', indexName: 'devices_id_option'
             );
-            $table->foreignId('id_status')->constrained(
-                table: 'statuses', indexName: 'devices_id_status'
+            $table->foreignId('id_status_activate')->constrained(
+                table: 'status_activates', indexName: 'devices_id_status_activate'
+            );
+            $table->foreignId('id_status_connect')->constrained(
+                table: 'status_connects', indexName: 'devices_id_status_connect'
             );
         });
     }

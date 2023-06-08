@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreignId('id_service')->constrained(
                 table: 'services', indexName: 'reports_id_services'
             );
-            $table->foreignId('id_status')->constrained(
-                table: 'statuses', indexName: 'reports_id_status'
+            $table->foreignId('id_status_state')->constrained(
+                table: 'status_states', indexName: 'reports_id_status_state'
             );
             $table->foreignId('id_progression')->constrained(
                 table: 'progressions', indexName: 'reports_id_progression'
