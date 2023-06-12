@@ -1,15 +1,37 @@
 <div class="col-3">
-    <div class="profile bg-success text-white" style="height: 150px">
-        <a href="">
-        <div class="row">
-            <div class="col-5">
-            <img src="" alt="">
+    <div class="profile  text-white" style="height: 150px">
+        {{-- <a href="">
+        <div class="row mt-3">
+            <div class="col-3" style="float: right">
+                <i class='bx bxs-bell' style='color:#ffac6a'></i>
             </div>
-            <div class="col-7">
-            <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
+            <div class="col-3">
+                <img src="{{url('images/user.png')}}" alt="" class="w-90">
+            </div>
+            <div class="col-6">
+                <p>Xin chào<br><b>{{ Auth::user()->name }}</b></p>
             </div>
         </div>
-        </a>
+
+        </a> --}}
+        <div class="row">
+            <div class="col-3 mt-4 text-center ">
+                <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
+            </div>
+            <div class="col-9 mt-3">
+                <a href="">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                        </div>
+                        <div class="col-9">
+                            <p>Xin chào</p>
+                            <p><b>{{ Auth::user()->name }}</b></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
 
     </div>
 

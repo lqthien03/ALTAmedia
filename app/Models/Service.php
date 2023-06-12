@@ -29,4 +29,22 @@ class Service extends Model
     //     $this->device_use=$device_use;
 
     // }
+    protected $fillable=[
+        'ma_service',
+        'name_service',
+        'mota',
+        'status_activates',
+        'status_completes',
+        'progressions',
+    ];
+    public $timestamps = true;
+
+    public function status()
+    {
+        # code...
+        return $this->belongsTo(Status_activate::class,'id');
+        return $this->belongsTo(Status_complete::class,'id');
+        return $this->belongsTo(Progression::class,'id');
+    }
+
 }

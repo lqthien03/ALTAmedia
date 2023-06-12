@@ -39,16 +39,16 @@ class Device extends Model
         'address_ip',
         'status_activete',
         'status_connect',
-        'device_use',
+        'device_sd',
     ];
     public $timestamps = true;
 
     public function status()
     {
         # code...
-        // return $this->belongsTo(Status_activate::class,'id');
+        return $this->belongsTo(Status_activate::class,'id');
         return $this->belongsTo(Status_connect::class,'id');
-        return  $this->belongsTo(User::class,'id');
+        return $this->belongsTo(User::class,'id');
     }
 
 

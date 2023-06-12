@@ -1,0 +1,16 @@
+.service{
+    background-color:#F7F7F7 ;
+}
+.box_service{
+    margin-left:5px;
+    margin-right:5px;
+}
+.table_service{
+    margin-left: 18px;
+    width: 672px;
+    border-radius: 10px;
+}
+.boder{
+    border-radius: 10px;
+}
+

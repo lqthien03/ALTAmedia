@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('ma_device');
             $table->string('name_device');
-            $table->string('address_ip');
-
+            $table->string('address_ip');   
+            $table->string('device_sd');
             $table->foreignId('id_user')->constrained(
                 table: 'users', indexName: 'devices_id_user'
             );

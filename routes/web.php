@@ -3,6 +3,8 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgressionController;
+use App\Models\Progression;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use Khill\Lavacharts\Lavacharts;
 
@@ -36,38 +38,28 @@ Route::middleware('auth')->group(function () {
 ////// DeviceController
 Route::controller(DeviceController::class)->group(function(){
     Route::get('/device','ShowDevice')->name('device.device');
-    Route::get('/device/detail/{id}', 'Detail_Device')->name('device.detail_device'); 
+    Route::get('/device/detail/{id}', 'Detail_Device')->name('device.detail_device');
     Route::get('/device/add','AddDevice')->name('device.add');
     Route::post('device/store','StoreDevice')->name('service.store');
-    Route::get('/device/edit/{id}', 'EditDevice')->name('device.edit');
+    Route::get('/device/edit/{id}','EditDevice')->name('device.add');
     Route::post('/device/update', 'UpdateEDevice')->name('device.update');
     });
 
 //////////ProgressionController
-
-Route::get('/progression',[ProgressionController::class,'ShowProgression'])->name('progression.progression');
+Route::controller(ProgressionController::class)->group(function(){
+    Route::get('/progression','ShowProgression')->name('progression.progression');
+    Route::get('/progression/detail/{id}','Detail_Progression')->name('progression.detail_progression');
+    Route::get('/progression/add','AddProgression')->name('progression.add');
+    Route::post('progression/store','StoreProgression')->name('progression.store');
+});
 
 ///////////ServiceController
-Route::get('/service',[ServiceController::class,'show'])->name('dichvu.service');
-Route::get('/service/detail',[ServiceController::class,'Detail_Service'])->name('dichvu.detail_service');
-Route::get('/update', function () {
-    return view('device.update_device', ['title' => 'update']);
-})->name('update_device');
 
-// service
-Route::get('/service',[ServiceController::class,'show'])->name('dichvu.service');
-Route::get('/service/detail',[ServiceController::class,'Detail_Service'])->name('dichvu.detail_service');
-Route::get('/update', function () {
-    return view('device.update_device', ['title' => 'update']);
-})->name('update_device');
-// Route::controller(DeviceController::class)->group(function(){
-//     Route::get('service','show')->name('dichvu.service');
-//     Route::get('/service/detail','detail_service')->name('dichvu.detail_service');
-//     Route::get('/service/update','update_service')->name('dichvu_service');
-//     Route::post('/service/update');
-// });
+Route::controller(ServiceController::class)->group(function(){
+    Route::get('/service','ShowService')->name('dichvu.service');
+    Route::get('/service/detail/{id}','Detail_Service')->name('dichvu.detail_service');
+});
 
-//report
 Route::get('/report',function(){
     return view('report.report');
 });
