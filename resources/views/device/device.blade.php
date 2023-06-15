@@ -9,14 +9,34 @@
             <p><b> Thiết bị > Danh sách thiết bị </b></p>
         </div>
         <div class="col-3">
-            <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
+            <div class="row">
+                <div class="col-3 mt-3 text-center ">
+                    <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
+                </div>
+                <div class="col-9 mt-1">
+                    <a href="/profile/{id}">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                            </div>
+                            <div class="col-9" style="line-height: 15px">
+                                <p>Xin chào</p>
+                                <p><b>{{ Auth::user()->name }}</b></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
+    <h2>Danh sách thiết bị</h2>
     <br>
-    <div class="row mt-3">
-        <h2>Danh sách thiết bị</h2>
-        <div class="col-11 mt-4">
+    <div class="row ">
+
+        <div class="col-11">
             <div class="row">
                 <div class="col-3">
                     <p style="margin-bottom: 5px">Trạng thái hoạt động</p>
@@ -63,9 +83,9 @@
                     <th scope="row">{{$item->ma_device}}</th>
                     <td>{{$item->name_device}}</td>
                     <td>{{$item->address_ip}}</td>
-                    <td>{{$item->status->name_activate}}</td>
-                    <td>{{$item->status->name_connect}}</td>
-                    <td>{{$item->status->name_option}}</td>
+                    <td>{{$item->status_activate->name_activate}}</td>
+                    <td>{{$item->status_connect->name_connect}}</td>
+                    <td>{{$item->option->name_option}}</td>
                     <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
                     <td><a href="/device/update/{{$item->id}}">Cập nhật</a></td>
                     </tr>

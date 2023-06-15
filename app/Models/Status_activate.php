@@ -14,7 +14,7 @@ class Status_activate extends Model
     public $table ="status_activates";
 
     protected $fillable=[
-        'name',
+        'name_activate',
 
     ];
     public $timestamps = true;

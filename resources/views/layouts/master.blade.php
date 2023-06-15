@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{url('css/service.css')}}">
     <link rel="stylesheet" href="{{url('css/progression.css')}}">
     <link rel="stylesheet" href="{{url('css/report.css')}}">
+    <link rel="stylesheet" href="{{url('css/profile.css')}}">
 </head>
 <body>
     <div class="container-fluid">

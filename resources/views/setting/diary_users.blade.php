@@ -7,7 +7,7 @@
             <div class="row mt-3">
                 <div class="col-9">
                     {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
-                    <p><b>Cài đặt hệ thống > Quản lý tài khoản</b></p>
+                    <p><b>Cài đặt hệ thống > Nhật ký thực tập</b></p>
                 </div>
                 <div class="col-3">
                     <div class="row">
@@ -37,14 +37,7 @@
             <div class="col-11">
                 <div class="row">
                     <div class="col-9">
-                        <div class="col-3">
-                            <p style="margin-bottom: 5px">Tên vai trò</p>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Tất cả</option>
-                                <option value="1">Hoạt động</option>
-                                <option value="2">Ngưng hoạt động</option>
-                                </select>
-                        </div>
+                        <h4>Danh sách vai trò</h4>
                     </div>
                     <div class="col-3">
                         <p style="margin-bottom: 5px">Từ khóa</p>
@@ -58,36 +51,26 @@
                     <thead  class="table-color">
                         <tr>
                         <th scope="col">Tên đăng nhập</th>
-                        <th scope="col">Họ tên</th>
-                        <th scope="col">Số điện thoại</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Vai trò</th>
-                        <th scope="col">Trạng thái hoạt động</th>
-                        <th scope="col"></th>
+                        <th scope="col">Thời gian tác động</th>
+                        <th scope="col">IP thực hiện</th>
+                        <th scope="col">Thao tác thực hiện</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($showsetting as $item)
                         <tr>
                         <th scope="row">{{$item->user->name_dangnhap}}</th>
-                        <td>{{$item->user->name}}</td>
-                        <td>{{$item->user->sdt}}</td>
-                        <td>{{$item->user->email}}</td>
-                        <td>{{$item->role->name_role}}</td>
-                        <td>{{$item->status_activate->name_activate}}</td>
-                        <td><a href="/setting/update_manager_account/{{$item->id}}">Cập nhật</a></td>
+                        <td>{{$item->time_cap}}</td>
+                        <td>{{$item->device->address_ip}}</td>
+                        <td>{{$item->supply->name_supply}}</td>
                         </tr>
                     </tbody>
                     @endforeach
                     </table>
             </div>
             <div class="col-1">
-                <div class="right text-center">
-                    <a href="{{url('/setting/add_manager_account')}}" class="add">
-                        <i class='bx bxs-message-square-add bx-md mt-2' style='color:#ff9138' ></i>
-                        <p>Thêm vai trò</p>
-                    </a>
-                </div>
+
             </div>
         </div>
     </div>

@@ -20,10 +20,12 @@ return new class extends Migration
             $table->foreignId('id_supply')->constrained(
                 table: 'supplys', indexName: 'progressions_id_supply'
             );
-
-            // $table->foreignId('id_user')->constrained(
-            //     table: 'users', indexName: 'progressions_id_user'
-            // );
+            $table->foreignId('id_user')->constrained(
+                table: 'users', indexName: 'progressions_id_user'
+            );
+            $table->foreignId('id_option')->constrained(
+                table: 'options', indexName: 'progressions_id_option'
+            );
 
             // $table->foreignId('id_service')->constrained(
             //     table: 'services', indexName: 'progressions_id_service'

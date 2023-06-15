@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 class ServiceController extends Controller
 {
     public function ShowService(){
-        $services= Service::with('status')->get();
+        $services= Service::with(['status_activate','status_complete','progression'])->get();
         return view('dichvu.service',compact('services'));
     }
     public function AddService(){

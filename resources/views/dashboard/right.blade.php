@@ -15,16 +15,16 @@
 
         </a> --}}
         <div class="row">
-            <div class="col-3 mt-4 text-center ">
+            <div class="col-3 mt-3 text-center ">
                 <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
             </div>
-            <div class="col-9 mt-3">
+            <div class="col-9 mt-1">
                 <a href="">
                     <div class="row">
                         <div class="col-3">
                             <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
                         </div>
-                        <div class="col-9">
+                        <div class="col-9" style="line-height: 15px">
                             <p>Xin chào</p>
                             <p><b>{{ Auth::user()->name }}</b></p>
                         </div>

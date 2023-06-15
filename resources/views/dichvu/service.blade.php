@@ -2,15 +2,33 @@
 @section('content')
 
 <div class="col-10 service">
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-9">
             {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
+            <p><b>Dịch vụ > Danh sách dịch vụ</b></p>
         </div>
         <div class="col-3">
-            <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
+            <div class="row">
+                <div class="col-3 mt-3 text-center ">
+                    <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
+                </div>
+                <div class="col-9 mt-1">
+                    <a href="">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                            </div>
+                            <div class="col-9" style="line-height: 15px">
+                                <p>Xin chào</p>
+                                <p><b>{{ Auth::user()->name }}</b></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <h2>Danh sách thiết bị</h2>
+    <h2>Quản lý dịch vụ</h2>
     <br>
     <div class="row">
         <div class="col-11">
@@ -51,7 +69,7 @@
                     <th scope="row">{{$item->ma_service}}</th>
                     <td>{{$item->name_service}}</td>
                     <td>{{$item->mota}}</td>
-                    <td>{{$item->status->name_activate}}</td>
+                    <td>{{$item->status_activate->name_activate}}</td>
                     <td><a href="/service/detail/{{$item->id}}">Chi tiết</a></td>
                     <td><a href="/device/update/{{$item->id}}">Cập nhật</a></td>
                     </tr>

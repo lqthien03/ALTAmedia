@@ -7,14 +7,31 @@
                 <p><b>Thiết bị > Danh sách thiết bị > Thêm thiết bị</b></p>
             </div>
             <div class="col-3">
-                <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p>
+                <div class="row">
+                    <div class="col-3 mt-3 text-center ">
+                        <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
+                    </div>
+                    <div class="col-9 mt-1">
+                        <a href="">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                                </div>
+                                <div class="col-9" style="line-height: 15px">
+                                    <p>Xin chào</p>
+                                    <p><b>{{ Auth::user()->name }}</b></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <h2>Quản lý thiết bị</h2>
         <div class=" mt-3 pt-2 box" style="height: 450px; margin-right:50px; ">
             <div style="margin-left: 15px;margin-right:15px">
                 <h4>Thông tin thiết bị</h4>
-                <form action="{{route('service.store')}}" method="post">
+                <form action="{{route('device.store')}}" method="post">
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-3">
@@ -31,14 +48,14 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Loại thiết bị:</label>
                                 <select class="form-select" aria-label="Default select example" name="id_option">
                                     <option selected>Chọn loại thiết bị</option>
                                     <option value="1">Kiosk</option>
                                     <option value="2">Display counter</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Tên đăng nhập:</label>
                                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tài khoản" name="id_user">
@@ -49,6 +66,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn btn-warning"> <a href="{{ route('device.device') }}">Hủy bỏ</a> </button>
+                        <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
+                    </div>
                 </form>
 
                 {{-- <div class="mb-3">
@@ -58,10 +79,7 @@
                 </div> --}}
             </div>
         </div>
-        <div class="text-center mt-3">
-            <button type="button" class="btn btn-warning"> <a href="{{ route('device.device') }}">Hủy bỏ</a> </button>
-            <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
-        </div>
+
     </div>
 
 

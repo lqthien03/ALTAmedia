@@ -8,7 +8,24 @@
             <p><b>Thiết bị > Danh sách cấp số > Chi tiết</b></p>
         </div>
         <div class="col-3">
-            <p>Xin chào <br><b>{{ Auth::user()->name }}</b></p>
+            <div class="row">
+                <div class="col-3 mt-3 text-center ">
+                    <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
+                </div>
+                <div class="col-9 mt-1">
+                    <a href="">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                            </div>
+                            <div class="col-9" style="line-height: 15px">
+                                <p>Xin chào</p>
+                                <p><b>{{ Auth::user()->name }}</b></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <h2>Quản lý cấp số</h2>

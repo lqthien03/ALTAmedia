@@ -21,11 +21,17 @@ class Progression extends Model
     ];
     public $timestamps = true;
 
-    public function progression()
+    public function user()
     {
-        # code...
         return $this->belongsTo(User::class,'id');
-
+    }
+    public function supply()
+    {
+        return $this->belongsTo(Supply::class,'id');
+    }
+    public function option()
+    {
+        return $this->belongsTo(Option::class,'id');
     }
 }
 

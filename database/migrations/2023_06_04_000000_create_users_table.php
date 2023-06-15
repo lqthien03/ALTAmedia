@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('role_id')->constrained(
                 table: 'roles', indexName: 'user_role_id'
             );
+            
             $table->string('name');
             $table->string('name_dangnhap');
             $table->string('email')->unique();

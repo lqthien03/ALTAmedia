@@ -33,13 +33,23 @@
                     <th scope="col">Nguồn cấp </th>
                     </tr>
                 </thead>
-                <tr>
+                {{-- <tr>
                     <th scope="row">10210001</th>
                     <td>Khám tim mạch</td>
                     <td>14:35-07/11/2022</td>
                     <td>đang chờ </td>
                     <td>Nguồn cấp</td>
+                </tr> --}}
+                @foreach($reports as $item)
+                <tr>
+                    <th scope="row">{{$item->progression->stt}}</th>
+                    {{-- <td>{{$item->option->name_option}}</td> --}}
+                    <td>{{$item->progression->time_cap}}</td>
+                    <td>{{$item->status_state->name_state}}</td>
+                    <td>{{$item->supply->name_supply}}</td>
                 </tr>
+                @endforeach
+
             </table>
         </div>
 

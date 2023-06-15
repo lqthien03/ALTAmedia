@@ -22,14 +22,13 @@
           </li>
 
           <li class="nav-item ">
-            <div class="dropdown dropend ">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+            <div class="dropdown nav-link dropend ">
                 <i class='bx bxs-cog'></i> Cài Đặt Hệ Thống :</a>
-              <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item" href="#">Quản lý vai trò</a></li>
-                <li><a class="dropdown-item" href="#">Quản lý tài khoản</a></li>
-                <li><a class="dropdown-item" href="#">Nhật ký người dùng</a></li>
-              </ul>
+                <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item" href="/manager_role">Quản lý vai trò</a></li>
+                    <li><a class="dropdown-item" href="/manager_account">Quản lý tài khoản</a></li>
+                    <li><a class="dropdown-item" href="/diary_users">Nhật ký người dùng</a></li>
+                </ul>
             </div>
 
 

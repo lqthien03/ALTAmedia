@@ -11,7 +11,7 @@ class Option extends Model
     public $table ="options";
 
     protected $fillable=[
-        'name',
+        'name_option',
 
     ];
     public $timestamps = true;

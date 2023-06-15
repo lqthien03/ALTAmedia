@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProgressionController extends Controller
 {
     public function ShowProgression(){
-        $progressions= Progression::with('progression')->get();
+        $progressions= Progression::with(['user','supply','option'])->get();
         return view('progression.progression',compact('progressions'));
     }
     public function AddProgression(){

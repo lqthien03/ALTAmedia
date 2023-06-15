@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
 class Service extends Model
 {
     use HasFactory;
@@ -39,11 +42,18 @@ class Service extends Model
     ];
     public $timestamps = true;
 
-    public function status()
+    public function status_activate()
     {
-        # code...
         return $this->belongsTo(Status_activate::class,'id');
+
+    }
+    public function status_complete()
+    {
         return $this->belongsTo(Status_complete::class,'id');
+    }
+
+    public function progression()
+    {
         return $this->belongsTo(Progression::class,'id');
     }
 

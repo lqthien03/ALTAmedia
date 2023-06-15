@@ -10,15 +10,18 @@ use App\Models\Status_activate;
 use App\Models\Op;
 use Illuminate\Support\Facades\Hash;
 
+
 class DeviceController extends Controller
 {
     public function ShowDevice(){
-        $devices= Device::with('status')->get();
+        $devices= Device::with(['user','status_activate','status_connect','option'])->get();
+
         return view('device.device',compact('devices'));
     }
     public function AddDevice(){
-        $devices_item = Device::all();
-        return view('device.create_device'  ,compact('devices_item'));
+        // $devices_item = Device::all();
+        // return view('device.create_device'  ,compact('devices_item'));
+        return view('device.create_device');
     }
     public function StoreDevice(Request $request){
         $request->validate([
@@ -40,6 +43,7 @@ class DeviceController extends Controller
 
         return view('device.update_device',compact('update_sevices'));
     }
+
     public function Detail_Device($id)
     {
         $devices_id = Device::find($id);
