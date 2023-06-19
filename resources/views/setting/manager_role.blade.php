@@ -68,7 +68,7 @@
             </div>
             <div class="col-1">
                 <div class="right text-center">
-                    <a href="{{url('/setting/add_manager_role')}}" class="add">
+                    <a href="{{url('/setting/manager_role/add')}}" class="add">
                         <i class='bx bxs-message-square-add bx-md mt-2' style='color:#ff9138' ></i>
                         <p>Thêm vai trò</p>
                     </a>

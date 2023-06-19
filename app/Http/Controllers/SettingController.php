@@ -25,6 +25,24 @@ class SettingController extends Controller
         $showsetting = Setting::with(['user','device','supply'])->get();
         return view('setting.diary_users' ,compact('showsetting'));
     }
+    public function AddRole(){
+        $role=Role::all();
+        // dd($role);
+        return view('setting.add_manager_role',compact('role'));
+    }
+    public function StoreRole(Request $request){
+
+        $request->validate([
+            'name_role' => 'required',
+            'mota' => 'required',
+
+        ]);
+        // dd($request);
+        $role=Role::create($request->all());
+        // dd($role);
+        return redirect()->route('setting.manager_role');
+    }
+
 
 
 }

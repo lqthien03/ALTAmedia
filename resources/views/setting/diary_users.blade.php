@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+
 @extends('layouts.master')
 @section('content')
     <div class="col-10">
@@ -75,7 +74,7 @@
         </div>
     </div>
 
-@endsection
+
 
 
 @endsection

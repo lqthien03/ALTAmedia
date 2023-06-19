@@ -17,5 +17,5 @@ class Status_activate extends Model
         'name_activate',
 
     ];
-    public $timestamps = true;
+    public $timestamps = false;
 }

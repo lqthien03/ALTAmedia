@@ -34,7 +34,7 @@
             <div class=" row box_progression">
                 <div class="col-6">
                     <h4>Thông tin cấp số </h4>
-                    <p>Họ Tên: {{$progression_id->progression->name_dangnhap}}</p>
+                    <p>Họ Tên: {{$progression_id->user->name_dangnhap}}</p>
                     <p>Số thứ tự: {{$progression_id->stt}}</p>
                     <p>Thời gian cấp: {{$progression_id->time_cap}}</p>
                     <p>Hạn sử dụng: {{$progression_id->time_sudung}}</p>
@@ -42,10 +42,10 @@
                 <div class="col-6">
                     <p></p>
                     <br>
-                    <p>Nguồn cấp: {{$progression_id->progression->name}}</p>
-                    <p>Trạng thái: {{$progression_id->progression->name_status}}</p>
-                    <p>Số điện thoại: {{$progression_id->progression->sdt}}</p>
-                    <p>Địa chỉ Email: {{$progression_id->progression->email}}</p>
+                    <p>Nguồn cấp: {{$progression_id->supply->name_supply}}</p>
+                    {{-- <p>Trạng thái: {{$progression_id->progression->name_status}}</p> --}}
+                    <p>Số điện thoại: {{$progression_id->user->sdt}}</p>
+                    <p>Địa chỉ Email: {{$progression_id->user->email}}</p>
                 </div>
             </div>
         </div>

@@ -17,11 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'password',
-    // ];
+    protected $fillable = [
+        'name',
+        'name_dangnhap',
+        'email',
+        'password',
+        'sdt',
+        'role_id',
+    ];
     public $table ="users";
 
     protected $guarded=[];
@@ -46,8 +49,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+
     public function role()
     {
         return $this->belongsTo(Role::class,'id');
+    }
+    public function progression()
+    {
+        return $this->hasMany(Progression::class);
     }
 }

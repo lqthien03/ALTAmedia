@@ -14,6 +14,7 @@ class ReportController extends Controller
 {
     public function ShowReport(){
         $reports= Report::with(['progression','service','status_state','supply'])->get();
+        // dd($reports);
         return view('report.report',compact('reports'));
     }
 }

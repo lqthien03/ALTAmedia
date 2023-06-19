@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div class="col-10 bgr">
-        <div class="row m-3">
+        <div class="row mt-3">
             <div class="col-9">
                 {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
                 <p><b>Thông tin cá nhân</b></p>
@@ -37,29 +37,29 @@
                 <div class="col-4 box_1">
                     <div class="mb-3 ">
                         <label for="formGroupExampleInput" class="form-label">Tên người dùng</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="thienbodoi" name="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="name" value="{{ Auth::user()->name }}">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="0363008204" name="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="" value="{{ Auth::user()->sdt }}">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Email:</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="quocthien0404@gmail.com" name="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="quocthien0404@gmail.com" name="" value="{{ Auth::user()->email }}">
                     </div>
                 </div>
                 <div class="col-4 box_2" >
                     <div class=" mb-3">
                         <label for="formGroupExampleInput" class="form-label">Tên đăng nhập</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="thien" name="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="thien" name="" value="{{ Auth::user()->name_dangnhap }}">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Mật khẩu</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="$2y$10$wcGuzUAiD5Dcqr3gHDlCnexZ9yvVC5BvP0LTDmXYOe5iDvGfT5SXa" name="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="" value="{{ Auth::user()->password }}">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Vai trò:</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="bác sĩ" name="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="bác sĩ" name="" value="">
                     </div>
                 </div>
             </div>

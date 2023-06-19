@@ -13,7 +13,7 @@
                     <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
                 <div class="col-9 mt-1">
-                    <a href="">
+                    <a href="/profile/{id}">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -71,7 +71,7 @@
                     <td>{{$item->mota}}</td>
                     <td>{{$item->status_activate->name_activate}}</td>
                     <td><a href="/service/detail/{{$item->id}}">Chi tiết</a></td>
-                    <td><a href="/device/update/{{$item->id}}">Cập nhật</a></td>
+                    <td><a href="/service/edit/{{$item->id}}">Cập nhật</a></td>
                     </tr>
                 </tbody>
                 @endforeach
@@ -80,7 +80,7 @@
         </div>
         <div class="col-1">
             <div class="right text-center">
-                <a href="{{url('/dichvu/add')}}" class="add">
+                <a href="{{url('/service/add')}}" class="add">
                     <i class='bx bxs-message-square-add bx-md mt-2' style='color:#ff9138' ></i>
                     <p>Thêm dịch vụ</p>
                 </a>

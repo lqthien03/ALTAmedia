@@ -12,7 +12,7 @@
                                 <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                             </div>
                             <div class="col-9 mt-1">
-                                <a href="">
+                                <a href="/profile/{id}">
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -98,16 +98,16 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach($services_id as $item)
+                                    @foreach($services_id->progression as $item)
                                         <tr>
-                                            <th scope="row">{{$item->progression->stt}}</th>
-                                            <td>{{$item->status_complete->name_complete}}</td>
+                                            <th scope="row">{{$item->stt}}</th>
+                                            {{-- <td>{{$item->status_complete->name_complete}}</td> --}}
                                         </tr>
-                                    @endforeach --}}
-                                  <tr>
+                                    @endforeach
+                                  {{-- <tr>
                                     <th scope="row">2010001</th>
                                     <td>Đã hoàn thành</td>
-                                  </tr>
+                                  </tr> --}}
                                 </tbody>
                               </table>
                         </div>

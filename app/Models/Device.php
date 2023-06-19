@@ -17,12 +17,20 @@ class Device extends Model
         'ma_device',
         'name_device',
         'address_ip',
+        'id_option',
+        'name_dangnhap',
+        'password',
         'device_sd',
-        'status_activete',
-        'status_connect',
-        'device_sd',
+        'id_user',
+        'id_option',
+        'id_status_activate',
+        'id_status_connect',
+
     ];
-    public $timestamps = true;
+    protected $attributes = ['id_status_activate' => 1, 'id_status_connect' => 1,
+    'id_status_activate' => 2,'id_status_connect' => 2  
+            ];
+    public $timestamps = false;
 
     public function user()
     {

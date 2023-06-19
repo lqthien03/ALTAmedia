@@ -34,35 +34,39 @@
     <br>
     <div class="col-11">
         <div class="row mt-5">
-            <div class="col-2">
+            <div class="col-2" >
+                <p style="margin-bottom: 5px">Tên dịch vụ</p>
+                <select class="form-select" aria-label="Default select example" >
+                    <option selected>Tất cả</option>
+                    <option value="1">Hoạt động</option>
+                    <option value="2">Ngưng hoạt động</option>
+                </select>
+            </div>
+            <div class="col-2" >
+                <p style="margin-bottom: 5px">Tình trạng</p>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Tất cả</option>
                     <option value="1">Hoạt động</option>
                     <option value="2">Ngưng hoạt động</option>
                 </select>
             </div>
-            <div class="col-2">
+            <div class="col-2" >
+                <p style="margin-bottom: 5px">Nguồn cấp</p>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Tất cả</option>
                     <option value="1">Hoạt động</option>
                     <option value="2">Ngưng hoạt động</option>
                 </select>
             </div>
-            <div class="col-2">
+            <div class="col-2" >
+                <p style="margin-bottom: 5px">Chọn thời gian</p>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Tất cả</option>
                     <option value="1">Hoạt động</option>
                     <option value="2">Ngưng hoạt động</option>
                 </select>
             </div>
-            <div class="col-2">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Tất cả</option>
-                    <option value="1">Hoạt động</option>
-                    <option value="2">Ngưng hoạt động</option>
-                </select>
-            </div>
-            <div class="col-2">
+            <div class="col-2" style="padding-top: 30px">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Tất cả</option>
                     <option value="1">Hoạt động</option>

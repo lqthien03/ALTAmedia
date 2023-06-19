@@ -23,6 +23,7 @@ class Report extends Model
     public function progression(){
         return $this->belongsTo(Progression::class,'id');
     }
+
     public function service(){
         return $this->belongsTo(Service::class,'id');
     }
@@ -31,6 +32,9 @@ class Report extends Model
     }
     public function supply(){
         return $this->belongsTo(Supply::class,'id');
+    }
+    public function option(){
+        return $this->belongsTo(Option::class,'id');
     }
 }
 

@@ -14,7 +14,7 @@
                     <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
                 <div class="col-9 mt-1">
-                    <a href="/profile/{id}">
+                    <a href="/profile">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -78,7 +78,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($devices as $item)
+                    {{-- @foreach($devices as $item)
                     <tr>
                     <th scope="row">{{$item->ma_device}}</th>
                     <td>{{$item->name_device}}</td>
@@ -87,10 +87,30 @@
                     <td>{{$item->status_connect->name_connect}}</td>
                     <td>{{$item->option->name_option}}</td>
                     <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
-                    <td><a href="/device/update/{{$item->id}}">Cập nhật</a></td>
+                    <td><a href="/device/edit/{{$item->id}}">Cập nhật</a></td>
                     </tr>
                 </tbody>
+                @endforeach --}}
+                @foreach($devices as $item)
+                    <tr>
+                        <th scope="row">{{$item->ma_device}}</th>
+                        <td>{{$item->name_device}}</td>
+                        <td>{{$item->address_ip}}</td>
+                        <td>{{ $item->status_activate ? $item->status_activate->name_activate : '' }}</td>
+                        <td>{{ $item->status_connect ? $item->status_connect->name_connect : '' }}</td>
+                        <td>{{ $item->option ? $item->option->name_option : '' }}</td>
+                        <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
+                        <td><a href="/device/edit/{{$item->id}}">Cập nhật</a></td>
+                    </tr>
                 @endforeach
+
+
+
+
+
+
+
+
                 </table>
         </div>
         <div class="col-1 ">

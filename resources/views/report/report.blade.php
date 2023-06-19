@@ -2,21 +2,36 @@
 @section('content')
 
 <div class="col-10">
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-9">
             {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
+            <p><b>Báo cáo > Lập báo cáo</b></p>
         </div>
         <div class="col-3">
-            <p>Xin chào <br><b>{{ Auth::user()->name }}</b></p>
+            <div class="row">
+                <div class="col-3 mt-3 text-center ">
+                    <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
+                </div>
+                <div class="col-9 mt-1">
+                    <a href="">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                            </div>
+                            <div class="col-9" style="line-height: 15px">
+                                <p>Xin chào</p>
+                                <p><b>{{ Auth::user()->name }}</b></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <h2>Báo cáo</h2>
-    <br>
-    <br>
 
-    <div class="row">
-        <div class="col-11">
+    <div class="row ">
+        <div class="col-11 mt-5">
             <h4>chọn thời gian</h4>
             <select class="form-select" aria-label="Default select example" style="width:200px">
                 <option selected>Tất cả</option>
@@ -43,7 +58,7 @@
                 @foreach($reports as $item)
                 <tr>
                     <th scope="row">{{$item->progression->stt}}</th>
-                    {{-- <td>{{$item->option->name_option}}</td> --}}
+                    <td></td>
                     <td>{{$item->progression->time_cap}}</td>
                     <td>{{$item->status_state->name_state}}</td>
                     <td>{{$item->supply->name_supply}}</td>
@@ -53,8 +68,8 @@
             </table>
         </div>
 
-        <div class="col-1">
-            <div class="right text-center">
+        <div class="col-1 mt-5">
+            <div class="right text-center mt-5">
                 <a href="{{url('/dichvu/add')}}" class="add">
                     <i class='bx bxs-down-arrow-square bx-md mt-3' style='color:#ff7506' ></i>
                     <p>Tải về</p>

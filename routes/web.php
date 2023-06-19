@@ -47,16 +47,18 @@ Route::controller(DeviceController::class)->group(function(){
     Route::get('/device/detail/{id}', 'Detail_Device')->name('device.detail_device');
     Route::get('/device/add','AddDevice')->name('device.add');
     Route::post('device/store','StoreDevice')->name('device.store');
-    Route::get('/device/edit/{id}','EditDevice')->name('device.add');
-    Route::post('/device/update', 'UpdateEDevice')->name('device.update');
-    });
+    Route::get('/device/edit/{device}','EditDevice')->name('device.edit_device');
+    Route::post('/device/update', 'UpdateDevice')->name('device.update');
+});
 
 //////////ProgressionController
 Route::controller(ProgressionController::class)->group(function(){
     Route::get('/progression','ShowProgression')->name('progression.progression');
     Route::get('/progression/detail/{id}','Detail_Progression')->name('progression.detail_progression');
-    Route::get('/progression/add','AddProgression')->name('progression.add');
+    Route::get('/progression/add','AddProgression')->name('progression.add_progression');
     Route::post('progression/store','StoreProgression')->name('progression.store');
+    // Route::get('/progression/edit/{id}','EditProgression')->name('progression.add');
+    // Route::post('/progression/update', 'UpdateProgression')->name('progresion.update');
 });
 
 ///////////ServiceController
@@ -64,6 +66,10 @@ Route::controller(ProgressionController::class)->group(function(){
 Route::controller(ServiceController::class)->group(function(){
     Route::get('/service','ShowService')->name('dichvu.service');
     Route::get('/service/detail/{id}','Detail_Service')->name('dichvu.detail_service');
+    Route::get('/service/add','AddService')->name('dichvu.add');
+    Route::post('service/store','StoreService')->name('dichvu.store');
+    Route::get('/service/edit/{id}','EditService')->name('dichvu.edit_service');
+    Route::post('/service/update', 'UpdateService')->name('dichvu.update');
 });
 /////////// ReportController
 Route::controller(ReportController::class)->group(function(){
@@ -71,11 +77,14 @@ Route::controller(ReportController::class)->group(function(){
 });
 
 ////////// profile
-Route::get('/profile/{id}',[UserController::class,'Detail_User'])->name('profile.profile');
+Route::get('/profile',[UserController::class,'ShowUser'])->name('profile.profile');
 
 //////////////////// setting
 Route::get('/manager_role',[SettingController::class,'ShowSetting_role'])->name('setting.manager_role');
+Route::get('/setting/manager_role/add',[SettingController::class,'AddRole'])->name('setting.add_manager_role');
+Route::post('/setting/manager_role/store',[SettingController::class,'StoreRole'])->name('setting.store');
 Route::get('/manager_account',[SettingController::class,'ShowSetting_account'])->name('setting.manager_account');
+
 Route::get('/diary_users',[SettingController::class,'ShowSetting_diary'])->name('setting.diary_users');
 
 

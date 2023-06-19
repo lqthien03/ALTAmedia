@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function ShowUser(){
-        $users= User::all();
-        return view('profile.profile',compact('users'));
+        $user= User::with('role')->get();
+        // dd($user);
+        return view('profile.profile',compact('user'));
     }
 
     public function Detail_User($id)
     {
-        $users_id = User::find($id);
-        return view('profile.profile', compact('users_id'));
+        $user = User::find($id);
+        return view('profile.profile', compact('user'));
     }
 }
