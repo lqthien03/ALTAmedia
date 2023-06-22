@@ -6,7 +6,7 @@
             <div class="row mt-3">
                 <div class="col-9">
                     {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
-                    <p><b>Cài đặt hệ thống > Nhật ký thực tập</b></p>
+                    <p><b>Cài đặt hệ thống > Nhật ký hoạt động</b></p>
                 </div>
                 <div class="col-3">
                     <div class="row">
@@ -35,8 +35,15 @@
         <div class="row">
             <div class="col-11">
                 <div class="row">
-                    <div class="col-9">
+
                         <h4>Danh sách vai trò</h4>
+
+                    <div class="col-9">
+                        <div class="thoigian" >
+                            <p style="margin-bottom: 5px">Chọn thời gian</p>
+                           <input type="date" name="" id="" style="margin-right: 5px; line-height:35px; ">
+                           <input type="date" name="" id="" style="line-height: 35px">
+                        </div>
                     </div>
                     <div class="col-3">
                         <p style="margin-bottom: 5px">Từ khóa</p>

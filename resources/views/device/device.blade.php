@@ -78,7 +78,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach($devices as $item)
+                    @foreach($devices as $item)
                     <tr>
                     <th scope="row">{{$item->ma_device}}</th>
                     <td>{{$item->name_device}}</td>
@@ -90,8 +90,10 @@
                     <td><a href="/device/edit/{{$item->id}}">Cập nhật</a></td>
                     </tr>
                 </tbody>
-                @endforeach --}}
-                @foreach($devices as $item)
+                @endforeach
+
+                {{-- @foreach($devices as $item)
+
                     <tr>
                         <th scope="row">{{$item->ma_device}}</th>
                         <td>{{$item->name_device}}</td>
@@ -102,7 +104,8 @@
                         <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
                         <td><a href="/device/edit/{{$item->id}}">Cập nhật</a></td>
                     </tr>
-                @endforeach
+                @endforeach --}}
+
 
 
 

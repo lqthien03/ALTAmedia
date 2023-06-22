@@ -17,5 +17,5 @@ class Status_complete extends Model
         'name_complete',
 
     ];
-    public $timestamps = true;
+    public $timestamps = false;
 }

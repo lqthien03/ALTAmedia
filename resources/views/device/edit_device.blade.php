@@ -1,92 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2">
-                <div class="text-center mt-4 mb-5 ">
-                    <img src="{{url('images/Logo alta.png')}}" alt="" class="w-1" >
+@extends('layouts.master')
+@section('content')
+<div class="col-10 device">
+    <div class="row mt-3">
+        <div class="col-9">
+            {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
+            <p><b> Dịch vụ > Danh sách thiết bị > Thêm thiết bị </b></p>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-3 mt-3 text-center ">
+                    <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
-                <div id="list-example" class="list-group">
-                    <a class="list-group-item list-group-item-action" href="/home">Dashboard</a>
-                    <a class="list-group-item list-group-item-action" href="/device">Thiết bị</a>
-                    <a class="list-group-item list-group-item-action" href="/service">Dịch vụ</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Cấp số</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Báo cáo</a>
-                    <a class="list-group-item list-group-item-action" href="#list-item-4">Cài đặt hệ thống</a>
-                </div>
-            </div>
-            <div class="col-10">
-                <div class="row">
-                    <div class="col-9">
-                        {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
-                    </div>
-                    <div class="col-3">
-                        {{-- <p>Xin chào <br> <b>{{ Auth::user()->name }}</b></p> --}}
-                    </div>
-                </div>
-                <h2>Quản lý thiết bị</h2>
-                <div class="rounded border border-secondary pt-2" style="height: 450px; margin-right:50px;">
-                    <div style="margin-left: 15px;margin-right:15px">
-                        <h4>Thông tin thiết bị</h4>
+                <div class="col-9 mt-1">
+                    <a href="/profile/{id}">
                         <div class="row">
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput" class="form-label">Mã thiết bị:</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập mã thiết bị" name="ma_device" value="{{old('ma_device') ?? $device->ma_device}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput2" class="form-label">Tên thiết bị:</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nhập tên thiết bị" name="name_device" value="{{old('name_device') ?? $device->name_device}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput" class="form-label">Địa chỉ IP:</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập địa chỉ IP" name="address_ip" value="{{old('address_ip') ?? $device->address_ip}}">
-                                </div>
+                            <div class="col-3">
+                                <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
                             </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput" class="form-label">Loại thiết bị:
-                                    </label>
-
-                                    <select class="form-select form-control" aria-label="Default select example" name="id_option">
-                                        <option>Chọn loại thiết bị</option>
-                                        @foreach ($options as $op )
-                                            <option {{$device->id_option == $op->id ? 'selected' : ''}} value="{{$op->id}}">{{$op->name_option}}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput" class="form-label">Tên đăng nhập:</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tài khoản" name="name_dangnhap" value="{{old('name_dangnhap') ?? $device->user->name_dangnhap}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput2" class="form-label">Mật khẩu:</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nhập mật khẩu" name="password" value="{{old('password') ?? $device->user->password}}">
-                                </div>
+                            <div class="col-9" style="line-height: 15px">
+                                <p>Xin chào</p>
+                                <p><b>{{ Auth::user()->name }}</b></p>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Dịch vụ sử dụng:</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tài khoản" name="device_sd" value="{{old('device_sd') ?? $device->device_sd}}">
-                            <label for="formGroupExampleInput" class="form-label">Là trường thông tin bắt buộc</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-3">
-                    <button type="button" class="btn btn-warning"><a href="{{ route('device.device') }}">Hủy bỏ</a></button>
-                    <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+    <h2>Quản lý thiết bị</h2>
+    <form action="{{route('device.update',$device)}}" method="post">
+        @csrf
+        @method('PUT')
+        <div class="box pt-2" style="height: 450px; margin-right:50px;">
+            <div style="margin-left: 15px;margin-right:15px">
+                <h4>Thông tin thiết bị</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Mã thiết bị:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập mã thiết bị" name="ma_device" value="{{old('ma_device') ?? $device->ma_device}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Tên thiết bị:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nhập tên thiết bị" name="name_device" value="{{old('name_device') ?? $device->name_device}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Địa chỉ IP:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập địa chỉ IP" name="address_ip" value="{{old('address_ip') ?? $device->address_ip}}">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Loại thiết bị:
+                            </label>
+
+                            <select class="form-select form-control" aria-label="Default select example" name="id_option">
+                                <option>Chọn loại thiết bị</option>
+                                @foreach ($options as $op )
+                                    <option {{$device->id_option == $op->id ? 'selected' : ''}} value="{{$op->id}}">{{$op->name_option}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Tên đăng nhập:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tài khoản" name="name_dangnhap" value="{{old('name_dangnhap') ?? $device->user->name_dannhap}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Mật khẩu:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nhập mật khẩu" name="password" value="{{old('password') }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Dịch vụ sử dụng:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tài khoản" name="device_sd" value="{{old('device_sd') ?? $device->device_sd}}">
+                    <label for="formGroupExampleInput" class="form-label">Là trường thông tin bắt buộc</label>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <button type="button" class="btn btn-warning"><a href="{{ route('device.device') }}">Hủy bỏ</a></button>
+            <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
+        </div>
+        @if ($errors->any())  @foreach ($errors->all() as $error)
+        <p>{{ $error }}</p>
+      @endforeach   @endif
+
+    </form>
+
+</div>
+@endsection
+
+
+
+
+

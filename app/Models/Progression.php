@@ -19,7 +19,7 @@ class Progression extends Model
         'time_sudung',
         'id_supply',
     ];
-    public $timestamps = true;
+    public $timestamps = false;
 
     public function user()
     {
@@ -27,11 +27,11 @@ class Progression extends Model
     }
     public function supply()
     {
-        return $this->belongsTo(Supply::class,'id');
+        return $this->belongsTo(Supply::class,'id_supply','id');
     }
     public function option()
     {
-        return $this->belongsTo(Option::class,'id');
+        return $this->belongsTo(Option::class,'id_option','id');
     }
 }
 

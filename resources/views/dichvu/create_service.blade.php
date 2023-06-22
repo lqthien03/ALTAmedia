@@ -39,6 +39,7 @@
                             <label for="formGroupExampleInput" class="form-label">Mã dịch vụ : *</label>
                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="ma_service">
                         </div>
+
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Tên dịch vụ : *</label>
                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="name_service">
@@ -87,6 +88,9 @@
                 <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
             </div>
         </form>
+        @if ($errors->any())  @foreach ($errors->all() as $error)
+        {{ $error }}
+      @endforeach   @endif
 
     </div>
 

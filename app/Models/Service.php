@@ -11,9 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class Service extends Model
 {
     use HasFactory;
-    public $table ="Services";
-
-
+    public $table ="services";
 
     protected $fillable=[
         'ma_service',
@@ -23,18 +21,18 @@ class Service extends Model
         'id_status_complete',
         'id_progression',
     ];
-    protected $attributes = ['id_status_activate' => 1, 'id_status_connect' => 1,'id_progression'=> 1];
+    protected $attributes = ['id_status_activate' => 1, 'id_status_complete' => 1,'id_progression'=> 1];
 
     public $timestamps = false;
 
     public function status_activate()
     {
-        return $this->belongsTo(Status_activate::class,'id');
+        return $this->belongsTo(Status_activate::class,'id_status_activate','id');
 
     }
     public function status_complete()
     {
-        return $this->belongsTo(Status_complete::class,'id');
+        return $this->belongsTo(Status_complete::class,'id_status_complete','id');
     }
 
     public function progression()

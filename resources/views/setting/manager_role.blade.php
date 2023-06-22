@@ -60,7 +60,7 @@
                         <th scope="row">{{$item->name_role}}</th>
                         <td>{{$item->soluong}}</td>
                         <td>{{$item->mota}}</td>
-                        <td><a href="/setting/update_manager_role/{{$item->id}}">Cập nhật</a></td>
+                        <td><a href="/setting/edit_manager_role/{{$item->id}}">Cập nhật</a></td>
                         </tr>
                     </tbody>
                     @endforeach

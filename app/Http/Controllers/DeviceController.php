@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateDeviceRequest;
 use Illuminate\Http\Request;
 use App\Models\Device;
 use App\Models\User;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 class DeviceController extends Controller
 {
     public function ShowDevice(){
-        $devices= Device::with(['user','status_activate','status_connect','option'])->get();
+        $devices= Device::with('user','status_activate','status_connect','option')->get();
         // dd($devices);
         return view('device.device',compact('devices'));
     }
@@ -25,7 +26,7 @@ class DeviceController extends Controller
     }
 
     public function StoreDevice(Request $request){
-        
+
         // dd($request->all());
         $request->validate([
             'name_device' => 'required',
@@ -60,18 +61,36 @@ class DeviceController extends Controller
 
     public function EditDevice(Device $device)
     {
+        // dd($device);
         $options = Option::all();
+        // dd($options);
         return view('device.edit_device', compact('device','options'));
     }
 
-    public function UpdateDevice($id){
-        $update_devices= Device::all();
-        return view('device.update_device',compact('_sevices'));
+    public function UpdateDevice(Device $device, UpdateDeviceRequest $request ){
+
+        $validated=$request->validated();
+        $user = User::where('name_dangnhap', $request->name_dangnhap)->firstOrFail();
+
+        $isUser = $user ? Hash::check( $request->password,$user->password) : false;
+        // dd( $isUser);
+        if($isUser){
+            $request->merge(['id_user'=>$user->id]) ;
+
+            $device->update($request->except(['name_dangnhap','password']));
+            // dd($device);
+        }
+
+        return back();
+
+
     }
 
     public function Detail_Device($id)
     {
         $devices_id = Device::find($id);
+
+        // dd($devices_id);
         return view('device.detail_device', compact('devices_id'));
     }
 

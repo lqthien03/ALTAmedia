@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateServiceRequest;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Status_complete;
@@ -25,29 +26,27 @@ class ServiceController extends Controller
     public function StoreService(Request $request){
         // dd($request);
         $request->validate([
-            'name_device' => 'required',
-            'ma_device' => 'required',
-            // 'address_ip' => 'required',
+            'name_service' => 'required',
+            'ma_service' => 'required',
             'mota' => 'required',
-            // 'id_option' => 'required',
-            // 'id_user' => 'required',
-            // 'id_password' => 'required',
         ]);
-        $service=Service::create($request->all());
-        dd($service);
+
+        Service::create($request->all());
+        // dd($service);
         return redirect()->route('dichvu.service');
-
     }
-    public function EditService($id)
+    public function EditService(Service $service)
     {
-        $services_id = Service::find($id);
-        return view('dichvu.edit_service', compact('services_id'));
+        // dd($service);
+        return view('dichvu.edit_service', compact('service'));
     }
 
-    public function update($id){
-        $update_devices= Service::all();
+    public function UpdateService(Service $service, UpdateServiceRequest $request){
+        // dd(request());
+        $validated= $request->validated();
+        $service->update($request->all());
 
-        return view('dichvu.update_service',compact('update_services'));
+        return back();
     }
     public function Detail_Service($id)
     {
