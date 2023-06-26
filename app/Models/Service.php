@@ -20,6 +20,7 @@ class Service extends Model
         'id_status_activate',
         'id_status_complete',
         'id_progression',
+
     ];
     protected $attributes = ['id_status_activate' => 1, 'id_status_complete' => 1,'id_progression'=> 1];
 
@@ -38,6 +39,10 @@ class Service extends Model
     public function progression()
     {
         return $this->hasMany(Progression::class,'id');
+    }
+    public function rule_progression()
+    {
+        return $this->belongsTo(RuleProgression::class,'id_progression','id');
     }
 
 }

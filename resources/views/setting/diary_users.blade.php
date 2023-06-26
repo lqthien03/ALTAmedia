@@ -1,7 +1,7 @@
 
 @extends('layouts.master')
 @section('content')
-    <div class="col-10">
+    <div class="col-10 device">
         <div class="row">
             <div class="row mt-3">
                 <div class="col-9">
@@ -14,7 +14,7 @@
                             <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                         </div>
                         <div class="col-9 mt-1">
-                            <a href="">
+                            <a href="/profile">
                                 <div class="row">
                                     <div class="col-3">
                                         <img src="{{url('images/user.png')}}" alt=""  style="width:50px">

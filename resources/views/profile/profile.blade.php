@@ -59,7 +59,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Vai trò:</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="bác sĩ" name="" value="">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="bác sĩ" name="" value="{{ Auth::user()->role->name_role }}">
                     </div>
                 </div>
             </div>

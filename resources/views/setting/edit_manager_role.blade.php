@@ -14,7 +14,7 @@
                         <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                     </div>
                     <div class="col-9 mt-1">
-                        <a href="">
+                        <a href="/profile">
                             <div class="row">
                                 <div class="col-3">
                                     <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <h2>Danh sách vai trò</h2>
-    <form action="{{route('setting.update',$role)}}" method="post">
+    <form action="{{route('setting.update_role',$role)}}" method="post">
         @csrf
         @method('PUT')
         <div class="row box">
@@ -74,7 +74,7 @@
         </div>
         <div class="text-center mt-3">
             <button type="button" class="btn btn-warning"> <a href="{{ route('setting.manager_role') }}">Hủy bỏ</a> </button>
-            <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
+            <button type="submit" class="btn btn-warning">Cập nhật</button>
         </div>
     </form>
 

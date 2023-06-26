@@ -13,7 +13,7 @@
                     <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
                 <div class="col-9 mt-1">
-                    <a href="">
+                    <a href="/profile">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -43,7 +43,7 @@
                     <p></p>
                     <br>
                     <p>Nguồn cấp: {{$progression_id->supply->name_supply}}</p>
-                    {{-- <p>Trạng thái: {{$progression_id->progression->name_status}}</p> --}}
+                    <p>Trạng thái: {{$progression_id->progression->name_status}}</p>
                     <p>Số điện thoại: {{$progression_id->user->sdt}}</p>
                     <p>Địa chỉ Email: {{$progression_id->user->email}}</p>
                 </div>

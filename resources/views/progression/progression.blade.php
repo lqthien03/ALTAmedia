@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<div class="col-10">
+<div class="col-10 device">
 <div class="row">
     <div class="row mt-3">
         <div class="col-9">
@@ -14,7 +14,7 @@
                     <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
                 <div class="col-9 mt-1">
-                    <a href="">
+                    <a href="/profile">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -76,8 +76,9 @@
             <div class="col-2">
                 <div style="">
                     <p style="margin-bottom: 5px">Từ khóa</p>
-                    <form class="d-flex text-center" role="search" >
-                        <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                    <form action="" method="GET" class="d-flex" role="search" style="width:169px">
+                        <input class="form-control device" type="search" name="key" placeholder="Search" aria-label="Search">
+                        <button class="search" type="submit" style="width:50px"><i class='bx bx-search-alt  ' style="color:#FF9138"></i></button>
                     </form>
                 </div>
             </div>
@@ -101,48 +102,16 @@
                     <tr>
                         <th scope="row">{{$item->stt}}</th>
                         <td>{{$item->user->name}}</td>
-                        <td>{{$item->stt}}</td>
+                        <td>{{$item->service->name_service}}</td>
                         <td>{{$item->time_cap}}</td>
                         <td>{{$item->time_sudung}}</td>
-                        <td>{{$item->stt}}</td>
+                        <td>{{$item->status->name_state}}</td>
                         <td>{{$item->supply->name_supply}}</td>
                         <td><a href="/progression/detail/{{$item->id}}">Chi tiết</a></td>
 
                     </tr>
                 @endforeach
             </tbody>
-            {{-- <tr>
-                <th scope="row">10210001</th>
-                <td>lê huỳnh ái vân</td>
-                <td>Khám tim mạch</td>
-                <td>14:35-07/11/2022</td>
-                <td>14:35-12/11/2023</td>
-                <td>đang chờ </td>
-                <td>Nguồn cấp</td>
-                <td><a href="/detail_service">Chi tiết</a></td>
-
-            </tr>
-                <tr>
-                <th scope="row">10210001</th>
-                <td>lê huỳnh ái vân</td>
-                <td>Khám tim mạch</td>
-                <td>14:35-07/11/2022</td>
-                <td>14:35-12/11/2023</td>
-                <td>đang chờ </td>
-                <td>Nguồn cấp</td>
-                <td><a href="/detail_service">Chi tiết</a></td>
-
-                </tr>
-                <tr>
-                <th scope="row">10210001</th>
-                <td>lê huỳnh ái vân</td>
-                <td>Khám tim mạch</td>
-                <td>14:35-07/11/2022</td>
-                <td>14:35-12/11/2023</td>
-                <td>đang chờ </td>
-                <td>Nguồn cấp</td>
-                <td><a href="/detail_service">Chi tiết</a></td>
-                </tr> --}}
             </table>
     </div>
             <div class="col-1">

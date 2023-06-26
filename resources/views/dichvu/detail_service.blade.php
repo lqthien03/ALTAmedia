@@ -101,7 +101,7 @@
                                     @foreach($services_id->progression as $item)
                                         <tr>
                                             <th scope="row">{{$item->stt}}</th>
-                                            {{-- <td>{{$item->status_complete->name_complete}}</td> --}}
+                                            <td>{{$item->status->name_state}}</td>
                                         </tr>
                                     @endforeach
                                   {{-- <tr>
@@ -115,9 +115,15 @@
                     <div class="col-1">
                         <div class="" style="height: 500px">
                             <div class=" right text-center">
-                                <a href="{{url('/device/add')}}" class="add">
+                                <a href="/service/edit/{{$services_id->id}}" class="add">
                                     <i class='bx bxs-pencil bx-sm mt-2 ' style='color:#ff9138'></i>
-                                    <p>Thêm thiết bị</p>
+                                    <p>Cập nhật danh sách</p>
+                                </a>
+                            </div>
+                            <div class=" right text-center">
+                                <a href="{{url('/service')}}" class="add">
+                                    <i class='bx bxs-pencil bx-sm mt-2 ' style='color:#ff9138'></i>
+                                    <p>Quay lại</p>
                                 </a>
                             </div>
                         </div>

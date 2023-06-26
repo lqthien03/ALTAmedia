@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRoleRequest extends FormRequest
+class UpdateRuleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,27 +21,30 @@ class UpdateRoleRequest extends FormRequest
      */
     public function rules(): array
     {
-        // dd($this->role);
-        $role_id = $this->role ? $this->role->id : null;
+        $rule_id=$this->user->id;
         return [
-            'name_role'=>'required|string|unique:roles,name_role,'.$role_id,
-            'mota'=>'required|string|unique:roles,mota,'.$role_id,
 
+            'start_count'=>'required|integer|unique:rule_progressions,start_count,'.$rule_id,
+            'end_count'=>'required|integer|unique:rule_progressions,end_count,'.$rule_id,
+            'prefix'=>'required|integer',
+            'surfix'=>'required|integer',
+            'is_prefix'=>'required',
+            'is_surfix'=>'required',
+            'is_reset'=>'requires',
+            'is_auto_increase',
         ];
     }
     public function messages(): array
     {
         return[
-            'name_role.required'=>':attribute không được để trống',
-            'mota.required'=>':attribute không được để trống',
+
         ];
     }
+
     public function attributes():array
     {
         return[
-            'name_role'=>'tên vai trò',
 
-            'mota'=>'mô tả',
         ];
     }
 }

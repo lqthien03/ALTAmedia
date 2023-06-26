@@ -17,13 +17,14 @@ class Device extends Model
         'ma_device',
         'name_device',
         'address_ip',
-        'id_option',
         'name_dangnhap',
         'password',
-        'device_sd',
         'id_user',
+        'id_service',
+        'id_option_device',
         'id_status_activate',
         'id_status_connect',
+        'id_option_device',
 
     ];
     protected $attributes = ['id_status_activate' => 1, 'id_status_connect' => 1,
@@ -44,8 +45,11 @@ class Device extends Model
     {
         return $this->belongsTo(Status_activate::class,'id_status_activate','id');
     }
-    public function option(){
-        return $this->belongsTo(Option::class,'id_option','id');
+    public function service(){
+        return $this->belongsTo(Service::class,'id_service','id');
+    }
+    public function option_device(){
+        return $this->belongsTo(Option_device::class,'id_option_device','id');
     }
 
 

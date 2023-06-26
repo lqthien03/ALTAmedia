@@ -12,7 +12,7 @@ use App\Models\Progression;
 use App\Models\Role;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
-use Khill\Lavacharts\Lavacharts;
+// use Khill\Lavacharts\Lavacharts;
 
 // use App\Http\Controller\DeviceController;
 /*
@@ -74,30 +74,32 @@ Route::controller(ServiceController::class)->group(function(){
 /////////// ReportController
 Route::controller(ReportController::class)->group(function(){
     Route::get('/report','ShowReport')->name('report.report');
+    Route::get('/export','ExportPDF')->name('export');
 });
+
 
 ////////// profile
 Route::get('/profile',[UserController::class,'ShowUser'])->name('profile.profile');
 
 //////////////////// setting
 Route::get('/manager_role',[SettingController::class,'ShowSetting_role'])->name('setting.manager_role');
-Route::get('/setting/manager_role/add',[SettingController::class,'AddRole'])->name('setting.add_manager_role');
-Route::post('/setting/manager_role/store',[SettingController::class,'StoreRole'])->name('setting.store');
-
+Route::get('/setting/manager_role/add',[SettingController::class,'AddSetting_role'])->name('setting.add_manager_role');
+Route::post('/setting/manager_role/store',[SettingController::class,'StoreSetting_role'])->name('setting_role.store');
 Route::get('/setting/edit_manager_role/{role}',[SettingController::class,'EditSetting_role'])->name('setting.edit_manager_role');
-Route::put('/setting/update_manager_role/store',[SettingController::class,'UpdateSetting_role'])->name('setting.update');
+Route::put('/setting/update_manager_role/{role}',[SettingController::class,'UpdateSetting_role'])->name('setting.update_role');
 
 
-
-
+//
 Route::get('/manager_account',[SettingController::class,'ShowSetting_account'])->name('setting.manager_account');
-Route::get('/setting/manager_account/add',[SettingController::class,'AddAccount'])->name('setting.add_manager_account');
-Route::post('/setting/manager_account/store',[SettingController::class,'StoreAccount'])->name('setting.store');
-
+Route::get('/setting/manager_account/add',[SettingController::class,'AddSetting_account'])->name('setting.add_manager_account');
+Route::post('/setting/manager_account/store',[SettingController::class,'StoreSetting_account'])->name('setting_account.store');
+Route::get('/setting/edit_manager_account/{user}',[SettingController::class,'EditSetting_account'])->name('setting.edit_manager_account');
+Route::put('/setting/update_manager_account/{user}',[SettingController::class,'UpdateSetting_account'])->name('setting.update_account');
 
 Route::get('/diary_users',[SettingController::class,'ShowSetting_diary'])->name('setting.diary_users');
 
-
+/// exportPDF
+// Route::get('/export-pdf',[PdfController::class,'exportPDF']);
 
 require __DIR__.'/auth.php';
 

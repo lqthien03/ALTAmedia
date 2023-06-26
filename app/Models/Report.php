@@ -25,16 +25,13 @@ class Report extends Model
     }
 
     public function service(){
-        return $this->belongsTo(Service::class,'id');
+        return $this->belongsTo(Service::class,'id_service','id');
     }
     public function status_state(){
         return $this->belongsTo(Status_state::class,'id');
     }
     public function supply(){
         return $this->belongsTo(Supply::class,'id');
-    }
-    public function option(){
-        return $this->belongsTo(Option::class,'id');
     }
 }
 

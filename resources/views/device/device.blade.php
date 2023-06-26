@@ -57,8 +57,9 @@
                 <div class="col-6 ">
                     <div style="float: right">
                         <p style="margin-bottom: 5px">Từ khóa</p>
-                        <form class="d-flex text-center" role="search" style="width:300px">
-                            <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                        <form action="" method="GET" class="d-flex" role="search" style="width:300px">
+                            <input class="form-control device" type="search" name="key" placeholder="Search" aria-label="Search">
+                            <button class="search" type="submit" style="width:50px"><i class='bx bx-search-alt  ' style="color:#FF9138"></i></button>
                         </form>
                     </div>
 
@@ -83,9 +84,25 @@
                     <th scope="row">{{$item->ma_device}}</th>
                     <td>{{$item->name_device}}</td>
                     <td>{{$item->address_ip}}</td>
-                    <td>{{$item->status_activate->name_activate}}</td>
-                    <td>{{$item->status_connect->name_connect}}</td>
-                    <td>{{$item->option->name_option}}</td>
+                    {{-- <td>{{$item->status_activate->name_activate}}</td> --}}
+                    <td>
+                        @if ($item->status_activate->name_activate == 'hoạt động')
+                            <i class='bx bxs-circle' style='color:#16ff00'  ></i>
+                        @else
+                            <i class='bx bxs-circle' style='color:#ff1e00'  ></i>
+                        @endif
+                        {{$item->status_activate->name_activate}}
+                    </td>
+                    {{-- <td>{{$item->status_connect->name_connect}}</td> --}}
+                    <td>
+                        @if ($item->status_connect->name_connect == 'kết nối')
+                            <i class='bx bxs-circle' style='color:#16ff00'  ></i>
+                        @else
+                            <i class='bx bxs-circle' style='color:#ff1e00'  ></i>
+                        @endif
+                        {{$item->status_connect->name_connect}}
+                    </td>
+                    <td>{{$item->service->name_service}}</td>
                     <td><a href="/device/detail/{{$item->id}}">Chi tiết</a></td>
                     <td><a href="/device/edit/{{$item->id}}">Cập nhật</a></td>
                     </tr>

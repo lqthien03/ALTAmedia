@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<div class="col-10">
+<div class="col-10 device">
     <div class="row mt-3">
         <div class="col-9">
             {{-- <h1>@yield('title', $title)</h1><br><br><br> --}}
@@ -58,9 +58,19 @@
                 @foreach($reports as $item)
                 <tr>
                     <th scope="row">{{$item->progression->stt}}</th>
-                    <td></td>
+                    <td>{{$item->service->name_service}}</td>
                     <td>{{$item->progression->time_cap}}</td>
-                    <td>{{$item->status_state->name_state}}</td>
+                    {{-- <td>{{$item->status_state->name_state}}</td> --}}
+                    <td>
+                        @if ($item->status_state->name_state == 'Đang chờ')
+                            <i class='bx bxs-circle' style='color:#0079FF'  ></i>
+                        @elseif ($item->status_state->name_state == 'Đã sử dụng')
+                            <i class='bx bxs-circle' style='color:#B7B7B7'  ></i>
+                        @else
+                            <i class='bx bxs-circle' style='color:#EB1D36'  ></i>
+                        @endif
+                        {{$item->status_state->name_state}}
+                    </td>
                     <td>{{$item->supply->name_supply}}</td>
                 </tr>
                 @endforeach
@@ -70,7 +80,7 @@
 
         <div class="col-1 mt-5">
             <div class="right text-center mt-5">
-                <a href="{{url('/dichvu/add')}}" class="add">
+                <a href="{{route('export')}}" class="add">
                     <i class='bx bxs-down-arrow-square bx-md mt-3' style='color:#ff7506' ></i>
                     <p>Tải về</p>
                 </a>

@@ -27,9 +27,15 @@ class UpdateServiceRequest extends FormRequest
             'ma_service'=>'required|string|unique:services,ma_service,'.$service_id,
             'name_service'=>'required|string|unique:services,name_service,'.$service_id,
             'mota'=>'required|string|unique:services,mota,'.$service_id,
-            // 'ma_service'=>'required|string',
-            // 'name_service'=>'required|string',
-            // 'mota'=>'required|string',
+            // 'id_progression'=>'required|integer',
+            // 'start_count'=>'required|integer|unique:rule_progressions,start_count',
+            // 'end_count'=>'required|integer|unique:rule_progressions,end_count',
+            // 'prefix'=>'required|integer',
+            // 'surfix'=>'required|integer',
+            // 'is_prefix'=>'required',
+            // 'is_surfix'=>'required',
+            // 'is_reset'=>'requires',
+            // 'is_auto_increase',
         ];
     }
     public function messages(): array

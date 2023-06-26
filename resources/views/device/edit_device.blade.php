@@ -12,7 +12,7 @@
                     <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
                 <div class="col-9 mt-1">
-                    <a href="/profile/{id}">
+                    <a href="/profile">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -54,10 +54,10 @@
                             <label for="formGroupExampleInput" class="form-label">Loại thiết bị:
                             </label>
 
-                            <select class="form-select form-control" aria-label="Default select example" name="id_option">
+                            <select class="form-select form-control" aria-label="Default select example" name="id_option_device">
                                 <option>Chọn loại thiết bị</option>
-                                @foreach ($options as $op )
-                                    <option {{$device->id_option == $op->id ? 'selected' : ''}} value="{{$op->id}}">{{$op->name_option}}</option>
+                                @foreach ($option_device as $op )
+                                    <option {{$device->id_option == $op->id ? 'selected' : ''}} value="{{$op->id}}">{{$op->name}}</option>
                                 @endforeach
                             </select>
 
@@ -73,8 +73,12 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Dịch vụ sử dụng:</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tài khoản" name="device_sd" value="{{old('device_sd') ?? $device->device_sd}}">
+                    <select class="form-select form-control" aria-label="Default select example" name="id_service">
+                        <option>Chọn loại thiết bị</option>
+                        @foreach ($option_service as $op )
+                            <option {{$device->id_option == $op->id ? 'selected' : ''}} value="{{$op->id}}">{{$op->name_service}}</option>
+                        @endforeach
+                    </select>
                     <label for="formGroupExampleInput" class="form-label">Là trường thông tin bắt buộc</label>
                 </div>
             </div>

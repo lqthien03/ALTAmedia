@@ -10,19 +10,26 @@ use App\Models\Status_connect;
 use App\Models\Status_activate;
 use App\Models\Op;
 use App\Models\Option;
+use App\Models\Option_device;
+use App\Models\Service;
 use Illuminate\Support\Facades\Hash;
 
 
 class DeviceController extends Controller
 {
     public function ShowDevice(){
-        $devices= Device::with('user','status_activate','status_connect','option')->get();
+        $devices= Device::with('user','status_activate','status_connect','service','option_device')->get();
         // dd($devices);
+        if($key = request()->key){
+            $devices = Device::where('name_device','like', '%'.$key.'%')->get();
+        }
+
         return view('device.device',compact('devices'));
     }
     public function AddDevice(){
-        $options = Option::all();
-        return view('device.create_device'  ,compact('options'));
+        $option_service = Service::all();
+        $option_device = Option_device::all();
+        return view('device.create_device'  ,compact('option_service','option_device'));
     }
 
     public function StoreDevice(Request $request){
@@ -32,12 +39,12 @@ class DeviceController extends Controller
             'name_device' => 'required',
             'ma_device' => 'required',
             'address_ip' => 'required',
-            'id_option' => 'required',
             'name_dangnhap' => 'required',
             'password' => 'required',
-            'device_sd'=> 'required',
-        ]);
+            'id_option_device'=>'required',
+            'id_service'=>'required',
 
+        ]);
 
         $user = User::where('name_dangnhap', $request->name_dangnhap)->firstOrFail();
         // dd($user);
@@ -62,9 +69,9 @@ class DeviceController extends Controller
     public function EditDevice(Device $device)
     {
         // dd($device);
-        $options = Option::all();
-        // dd($options);
-        return view('device.edit_device', compact('device','options'));
+        $option_service = Service::all();
+        $option_device = Option_device::all();
+        return view('device.edit_device', compact('device','option_service','option_device'));
     }
 
     public function UpdateDevice(Device $device, UpdateDeviceRequest $request ){

@@ -13,7 +13,7 @@
                             <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                         </div>
                         <div class="col-9 mt-1">
-                            <a href="">
+                            <a href="/profile">
                                 <div class="row">
                                     <div class="col-3">
                                         <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -30,7 +30,7 @@
             </div>
         </div>
         <h2>Danh sách vai trò</h2>
-        <form action="{{route('setting.store')}}" method="post">
+        <form action="{{route('setting_role.store')}}" method="post">
             @csrf
             <div class="row box">
                 <h4>Thông tin vai trò</h4>
@@ -72,9 +72,12 @@
             </div>
             <div class="text-center mt-3">
                 <button type="button" class="btn btn-warning"> <a href="{{ route('setting.manager_role') }}">Hủy bỏ</a> </button>
-                <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
+                <button type="submit" class="btn btn-warning">Thêm vai trò</button>
             </div>
         </form>
+        @if ($errors->any())  @foreach ($errors->all() as $error)
+        {{ $error }}
+      @endforeach   @endif
 
     </div>
 

@@ -12,7 +12,7 @@
                         <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                     </div>
                     <div class="col-9 mt-1">
-                        <a href="">
+                        <a href="/profile">
                             <div class="row">
                                 <div class="col-3">
                                     <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -51,10 +51,10 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Loại thiết bị:</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="id_option">
+                                <select class="form-select form-control" aria-label="Default select example" name="id_option_device">
                                     <option selected>Chọn loại thiết bị</option>
-                                    @foreach ($options as $op )
-                                        <option value="{{$op->id}}">{{$op->name_option}}</option>
+                                    @foreach ($option_device as $op )
+                                        <option value="{{$op->id}}">{{$op->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -68,10 +68,13 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Dich vu su dung:</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="device_sd">
-                            </div>
+                            <label for="formGroupExampleInput" class="form-label">Dịch vụ sử dụng   :</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="id_service">
+                                    <option selected>Nhập dịch vụ sử dụng</option>
+                                    @foreach ($option_service as $op )
+                                        <option value="{{$op->id}}">{{$op->name_service}}</option>
+                                    @endforeach
+                                </select>
                         </div>
 
                     </div>

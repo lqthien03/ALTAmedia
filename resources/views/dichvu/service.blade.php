@@ -13,7 +13,7 @@
                     <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                 </div>
                 <div class="col-9 mt-1">
-                    <a href="/profile/{id}">
+                    <a href="/profile">
                         <div class="row">
                             <div class="col-3">
                                 <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -45,8 +45,9 @@
                 <div class="col-6">
                     <div style="float: right">
                         <p style="margin-bottom: 5px">Từ khóa</p>
-                        <form class="d-flex text-center" role="search" style="width:300px">
-                            <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                        <form action="" method="GET" class="d-flex" role="search" style="width:300px">
+                            <input class="form-control device" type="search" name="key" placeholder="Search" aria-label="Search">
+                            <button class="search" type="submit" style="width:50px"><i class='bx bx-search-alt  ' style="color:#FF9138"></i></button>
                         </form>
                     </div>
                 </div>
@@ -69,7 +70,15 @@
                     <th scope="row">{{$item->ma_service}}</th>
                     <td>{{$item->name_service}}</td>
                     <td>{{$item->mota}}</td>
-                    <td>{{$item->status_activate->name_activate}}</td>
+                    {{-- <td>{{$item->status_activate->name_activate}}</td> --}}
+                    <td>
+                        @if ($item->status_activate->name_activate == 'hoạt động')
+                            <i class='bx bxs-circle' style='color:#16ff00'  ></i>
+                        @else
+                            <i class='bx bxs-circle' style='color:#ff1e00'  ></i>
+                        @endif
+                        {{$item->status_activate->name_activate}}
+                    </td>
                     <td><a href="/service/detail/{{$item->id}}">Chi tiết</a></td>
                     <td><a href="/service/edit/{{$item->id}}">Cập nhật</a></td>
                     </tr>

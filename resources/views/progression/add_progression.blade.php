@@ -13,7 +13,7 @@
                         <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                     </div>
                     <div class="col-9 mt-1">
-                        <a href="">
+                        <a href="/profile">
                             <div class="row">
                                 <div class="col-3">
                                     <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -34,30 +34,32 @@
         <h2>Cấp số mới</h2>
         <p><b>Dịch vụ khách hàng lựa chọn</b></p>
         <form action="{{route('progression.store')}}" method="post">
+            @csrf
             <div class="mb-3 " style="padding-left: 400px; padding-right:400px">
                 {{-- <label for="formGroupExampleInput" class="form-label">Loại thiết bị:</label> --}}
-                <select class="form-select" aria-label="Default select example" name="id_option">
+                <select class="form-select" aria-label="Default select example" name="id_service">
                     <option selected>Chọn dịch vụ</option>
-                    {{-- <option value="1">Khám tim mạch</option>
-                    <option value="2">Khám sản - Phụ khoa</option>
-                    <option value="3">Khám răng hàm mặt</option>
-                    <option value="4">Khám tai mũi họng</option> --}}
-
-                    @foreach ($options as $op )
-                        <option {{$progression_item->id_option == $op->id ? 'selected' : ''}} value="{{$op->id}}">{{$op->name_option}}</option>
+                    @foreach ($option_service as $op )
+                        <option value="{{$op->id}}">{{$op->name_service}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="text-center mt-5">
-                <button type="button" class="btn btn-warning"> <a href="{{ route('device.device') }}">Hủy bỏ</a> </button>
-                <button type="submit" class="btn btn-warning">Thêm thiết bị</button>
+                <button type="button" class="btn btn-warning"> <a href="{{ route('progression.progression') }}">Hủy bỏ</a> </button>
+                <button type="submit" class="btn btn-warning">Tạo</button>
             </div>
         </form>
+        {{-- Hiển thị dữ liệu --}}
+        <div id="dataContainer"></div>
+
 
 
     </div>
 
 </div>
+<script>
+
+</script>
 
 
 

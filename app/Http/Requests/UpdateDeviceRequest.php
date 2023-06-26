@@ -25,12 +25,12 @@ class UpdateDeviceRequest extends FormRequest
     $device_id= $this->device->id;
         return [
             'ma_device'=>'required|string|unique:devices,ma_device,'.$device_id,
-            'name_device'=>'required|string|unique:devices,name_device,'.$device_id,
+            'name_device'=>'required|string|unique:devices,name_device',
             'address_ip'=>'required',
-            'id_option'=>'required|integer|exists:options,id',
+            'id_option_device'=>'required|integer|exists:option_devices,id',
             'name_dangnhap'=>'required|string',
             'password'=>'required',
-            'device_sd'=>'required|string',
+            'id_service'=>'required|integer|exists:services,id',
 
         ];
 

@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public $table ="users";
     protected $fillable = [
         'name',
         'name_dangnhap',
@@ -24,8 +25,11 @@ class User extends Authenticatable
         'password',
         'sdt',
         'role_id',
+        'id_option_device',
+
     ];
-    public $table ="users";
+    protected $attributes = ['id_status_activate' => 1];
+
 
     protected $guarded=[];
 
@@ -53,7 +57,10 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class,'id');
+        return $this->belongsTo(Role::class,'role_id','id');
+    }
+    public function status_activate(){
+        return $this->belongsTo(Status_activate::class,'id_status_activate','id');
     }
     public function progression()
     {

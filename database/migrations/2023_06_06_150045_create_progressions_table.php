@@ -34,7 +34,7 @@ return new class extends Migration
             // $table->foreignId('id_status_state')->constrained(
             //     table: 'status_states', indexName: 'progressions_id_status_state'
             // );
-            
+
         });
     }
 

@@ -1,8 +1,7 @@
+
 @extends('layouts.master')
 @section('content')
-@extends('layouts.master')
-@section('content')
-    <div class="col-10">
+    <div class="col-10 device">
         <div class="row">
             <div class="row mt-3">
                 <div class="col-9">
@@ -15,7 +14,7 @@
                             <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                         </div>
                         <div class="col-9 mt-1">
-                            <a href="">
+                            <a href="/profile">
                                 <div class="row">
                                     <div class="col-3">
                                         <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -54,7 +53,7 @@
                     </div>
                 </div>
 
-                <table class="table rounded table-bordered mt-2 ">
+                <table class="table rounded table-bordered mt-3 ">
                     <thead  class="table-color">
                         <tr>
                         <th scope="col">Tên đăng nhập</th>
@@ -69,23 +68,31 @@
                     <tbody>
                         @foreach($showsetting as $item)
                         <tr>
-                        <th scope="row">{{$item->user->name_dangnhap}}</th>
-                        <td>{{$item->user->name}}</td>
-                        <td>{{$item->user->sdt}}</td>
-                        <td>{{$item->user->email}}</td>
+                        <th scope="row">{{$item->name_dangnhap}}</th>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->sdt}}</td>
+                        <td>{{$item->email}}</td>
                         <td>{{$item->role->name_role}}</td>
-                        <td>{{$item->status_activate->name_activate}}</td>
-                        <td><a href="/setting/update_manager_account/{{$item->id}}">Cập nhật</a></td>
+                        {{-- <td>{{$item->status_activate->name_activate}}</td> --}}
+                        <td>
+                            @if ($item->status_activate->name_activate == 'hoạt động')
+                                <i class='bx bxs-circle' style='color:#16ff00'  ></i>
+                            @else
+                                <i class='bx bxs-circle' style='color:#ff1e00'  ></i>
+                            @endif
+                            {{$item->status_activate->name_activate}}
+                        </td>
+                        <td><a href="/setting/edit_manager_account/{{$item->id}}">Cập nhật</a></td>
                         </tr>
                     </tbody>
                     @endforeach
                     </table>
             </div>
-            <div class="col-1">
-                <div class="right text-center">
+            <div class="col-1 mt-5">
+                <div class="right text-center mt-5">
                     <a href="{{url('/setting/manager_account/add')}}" class="add">
                         <i class='bx bxs-message-square-add bx-md mt-2' style='color:#ff9138' ></i>
-                        <p>Thêm vai trò</p>
+                        <p>Thêm tài khoản</p>
                     </a>
                 </div>
             </div>
@@ -94,5 +101,3 @@
 
 @endsection
 
-
-@endsection

@@ -12,7 +12,7 @@
                         <a href=""><i class='bx bxs-bell  bx-sm' style='color:#ffac6a'></i></a>
                     </div>
                     <div class="col-9 mt-1">
-                        <a href="/profile/{id}">
+                        <a href="/profile">
                             <div class="row">
                                 <div class="col-3">
                                     <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
@@ -45,32 +45,28 @@
                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="name_service">
                         </div>
                         <h4>Quy tắc cấp số</h4>
+                        
                         <div class="row">
-                            <div class="col-4">
-                                <input type="checkbox" class="mt-4"> Tăng tự động từ :<br>
-                                <input type="checkbox" class="mt-4"> Prefix<br>
-                                <input type="checkbox" class="mt-4"> Surfix<br>
-                                <input type="checkbox" class="mt-4"> Reset mỗi ngày<br>
+                            <div class="col">
+                                <input type="hidden" value="0" name="is_auto_increase">
+                                <input type="checkbox" value="1" name="is_auto_increase" class="mt-4" value="01"> Tăng tự động từ :
+
+                                    <input type="number"  name="start_count" style="width:50px; border-radius:5px">
+                                    đến <input type="number"  name="end_count" style="width:50px; border-radius:5px"><br>
+
+                                <input type="hidden" value="0" name="is_prefix">
+                                <input type="hidden" value="0" name="is_prefix">
+                                <input type="checkbox" value="1" name="is_prefix" class="mt-4"> Prefix:
+                                <input type="number"  name="prefix" style="width:50px; border-radius:5px; margin-left:79px"><br>
+
+                                <input type="hidden" value="0" name="is_surfix">
+                                <input type="checkbox" value="1" name="is_surfix" class="mt-4"> Surfix:
+                                <input type="number" name="surfix" style="width:50px; border-radius:5px; margin-left:79px"><br>
+
+                                <input type="hidden" value="0" name="is_reset">
+                                <input type="checkbox" value="1" name="is_reset" class="mt-4"> Reset mỗi ngày<br>
                                 <p>* Là trường thông tin bắt buộc</p>
                             </div>
-                            <div class="col-2">
-                                <div class="botton_service mt-2">
-                                    <p>0001</p>
-                                </div>
-                                <div class="botton_service mt-2">
-                                    <p>0001</p>
-                                </div>
-                                <div class="botton_service mt-2">
-                                    <p>0001</p>
-                                </div>
-                            </div>
-                            <div class="col-1 mt-3"><p>đến</p></div>
-                            <div class="col-2">
-                                <div class="botton_service mt-2">
-                                    <p>9999</p>
-                                </div>
-                            </div>
-                            <div class="col-3"></div>
                         </div>
                     </div>
                     <div class="col-6">
