@@ -18,9 +18,12 @@ class Progression extends Model
         'time_cap',
         'time_sudung',
         'id_supply',
-        'id_'
+        'id_user',
+        'id_status_state',
+        'id_service',
     ];
     public $timestamps = false;
+    protected $attributes = ['id_supply' => 1, 'id_user' => 1,'id_status_state'=>1,'id_service'=>1];
 
     public function user()
     {

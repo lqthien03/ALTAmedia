@@ -16,63 +16,72 @@ use Carbon\Carbon;
 
 class ProgressionController extends Controller
 {
-    public function ShowProgression(){
+    public function ShowProgression()
+    {
 
-        $firtProgressions= Progression::with(['user','supply','service','status'])->get();
+        $firtProgressions = Progression::with(['user', 'supply', 'service', 'status'])->get();
 
         $progressions = $firtProgressions->filter(function ($progression) {
             return $progression->user->role_id === 1;
         });
-        if($key = request()->key){
-            $progressions = Progression::where('id_user->name','like', '%'.$key.'%')->get();
+        if ($key = request()->key) {
+            $progressions = Progression::where('id_user->name', 'like', '%' . $key . '%')->get();
         }
-        return view('progression.progression',compact('progressions'));
+        return view('progression.progression', compact('progressions'));
     }
 
 
-    public function AddProgression(){
+    public function AddProgression()
+    {
         $option_service = Service::all();
-        return view('progression.add_progression' ,compact('option_service'));
+        return view('progression.add_progression', compact('option_service'));
     }
-    public function StoreProgression(Request $request){
+    public function StoreProgression(Request $request)
+    {
 
         $request->validate([
-            'id_service'=>'required|exists:services,id',
-            'id_user'=>'required|exists:users,id',
+            'id_service' => 'required|exists:services,id',
+            // 'id_user'=>'required|exists:users,id',
         ]);
         //số thứ tự
-        $service= Service::find($request->id_service);
+        $service = Service::find($request->id_service);
         // dd($service);
 
-        $rule= $service->rule_progression;
+        $rule = $service->rule_progression;
         // dd($rule);
-        $last_progression= Progression::latest('id')->first();
-        if($rule->is_prefix == 1){
-            $nextId = $last_progression ? $last_progression->id +1 : $rule->start_count;
+        $last_progression = Progression::latest('id')->first();
+        if ($rule->is_prefix == 1) {
+            $nextId = $last_progression ? $last_progression->id + 1 : $rule->start_count;
 
-            $nextCode=$service->id.Str::padLeft($nextId, 4, '0');
-
+            $nextCode = $service->ma_service . Str::padLeft($nextId, 4, '0');
         }
-        //thời gian cấp
-        $issuedAt =Carbon::now();
+
+        $issuedAt = Carbon::now();
         // dd($issuedAt);
-        //hạn sử dụng
+
         $expiredAt  = $issuedAt->copy()->addHours(24);
-        // dd($expiredAt);
+
         // dd($nextCode, $issuedAt, $expiredAt);
 
-        $progression=Progression::create([
+        $progression = Progression::create([
             'id_service' => $service->id,
             'stt' => $nextCode,
-            'time_cap'=> $issuedAt,
-            'time_sudung'=> $expiredAt,
-            'id_supply'=> 1,
-            'id_user'=>1,
-            'id_status_state'=>1,
-            'id_service'=>1,
+            'time_cap' => $issuedAt,
+            'time_sudung' => $expiredAt,
         ]);
-        dd($progression);
-        return back();
+        // dd($progression);
+        $option_service = Service::all();
+
+        // return view('progression.add_progression',compact('option_service'));
+
+        $dataSuccess = [
+            'name_service' => $service->name_service,
+            'stt' => $nextCode,
+            'time_cap' => date($issuedAt),
+            'time_sudung' => date($expiredAt),
+        ];
+
+        return back()->with('dataSuccess', $dataSuccess);
     }
 
 
