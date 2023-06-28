@@ -71,9 +71,6 @@ class ProgressionController extends Controller
         ]);
         // dd($progression);
         $option_service = Service::all();
-
-        // return view('progression.add_progression',compact('option_service'));
-
         $dataSuccess = [
             'name_service' => $service->name_service,
             'stt' => $nextCode,

@@ -58,17 +58,22 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Số thứ tự đã cấp</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
+                                <h4 style="color: #ffac6a">{{ $dataSuccess['stt'] }}</h4>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <p>DV:{{ $dataSuccess['name_service'] }} <b>(tại quầy số 1)</b></p>
+
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                            <div class="modal-footer" style="background-color: #ffac6a">
+                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button> --}}
+
+                                <p>Thời gian cấp:{{ $dataSuccess['time_cap'] }}</p>
+                                <p>Hạn sử dụng:{{ $dataSuccess['time_sudung'] }}</p>
                             </div>
                         </div>
                     </div>
