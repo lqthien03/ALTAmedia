@@ -6,6 +6,7 @@ use App\Exceptions\Handler;
 use App\Models\Option;
 use App\Models\Supply;
 use App\Models\Progression;
+use App\Models\RuleProgression;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class ProgressionController extends Controller
         $service = Service::find($request->id_service);
         // dd($service);
 
-        $rule = $service->rule_progression;
+        $rule = RuleProgression::where('id_service',$service->id)->first();
         // dd($rule);
         $last_progression = Progression::latest('id')->first();
         if ($rule->is_prefix == 1) {
@@ -84,7 +85,9 @@ class ProgressionController extends Controller
 
     public function Detail_Progression($id)
     {
-        $progression_id = Progression::find($id);
+        $progression_id = Progression::with(['user', 'supply', 'service', 'status'])->find($id);
+
+        
         return view('progression.detail_progression', compact('progression_id'));
     }
 
@@ -92,26 +95,20 @@ class ProgressionController extends Controller
     {
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;
-        $progression = Progression::all();
-        $statis = [
-            '1' => Progression::whereDay('time_cap', 1)
-                ->whereMonth('time_cap', $month)
-                ->whereYear('time_cap', $year)
-                ->count(),
+        $totalDays = Carbon::createFromDate($year, $month)->daysInMonth;
+        $days = range(1, $totalDays);
 
-            '7' => Progression::whereDay('time_cap', 7)
+        $statistics = [];
+
+        foreach ($days as $day) {
+            $count = Progression::whereDay('time_cap', $day)
                 ->whereMonth('time_cap', $month)
                 ->whereYear('time_cap', $year)
-                ->count(),
-            '14' => Progression::whereDay('time_cap', 14)
-                ->whereMonth('time_cap', $month)
-                ->whereYear('time_cap', $year)
-                ->count(),
-            '21' => Progression::whereDay('time_cap', 21)
-                ->whereMonth('time_cap', $month)
-                ->whereYear('time_cap', $year)
-                ->count(),
-        ];
-        return response()->json($statis);
+                ->count();
+
+            $statistics[] =  $count;
+        }
+
+        return response()->json(['data' => $statistics, 'label' => $days]);
     }
 }

@@ -21,7 +21,7 @@ class ReportController extends Controller
     public function ExportPDF()
     {
         $reports = Report::get();
-        // dd($reports);
+        dd($reports);
         $pdf = Pdf::loadView('report.export', ['reports' => $reports]);
         // dd($pdf->);
         return $pdf->download('report.pdf');

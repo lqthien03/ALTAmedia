@@ -23,9 +23,6 @@ class SettingController extends Controller
     public function ShowSetting_role()
     {
         $showsetting = Role::withCount('users')->get();
-
-
-
         return view('setting.manager_role', compact('showsetting'));
     }
 

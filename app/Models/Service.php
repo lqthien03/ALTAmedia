@@ -34,13 +34,9 @@ class Service extends Model
     {
         return $this->belongsTo(Status_complete::class, 'id_status_complete', 'id');
     }
-
     public function progression()
     {
-        return $this->hasMany(Progression::class, 'id');
+        return $this->hasMany(Progression::class,'id');
     }
-    public function rule_progression()
-    {
-        return $this->belongsTo(RuleProgression::class, 'id_progression', 'id');
-    }
+
 }

@@ -99,7 +99,7 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($services_id->progression as $item)
+                                    @foreach($progressions_by_service as $item)
                                         <tr>
                                             <th scope="row">{{$item->stt}}</th>
                                             <td>{{$item->status->name_state}}</td>

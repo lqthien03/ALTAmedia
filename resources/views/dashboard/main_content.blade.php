@@ -82,6 +82,7 @@
             <canvas id="myChart"></canvas>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0 "></script>
 
         <script>
             const chart = document.getElementById('myChart');
@@ -89,10 +90,10 @@
             new Chart(chart, {
                 type: 'line',
                 data: {
-                    labels: ['1', '7', '14', '21'],
+                    labels: @json($days),
                     datasets: [{
                         label: '# of Votes',
-                        data: [12, 19, 3, 5],
+                        data: @json($statistics),
                         borderWidth: 1
                     }]
                 },
@@ -102,7 +103,9 @@
                         y: {
                             beginAtZero: true
                         }
-                    }
+                    },
+
+
                 }
             });
         </script>

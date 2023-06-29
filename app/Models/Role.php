@@ -13,7 +13,7 @@ class Role extends Model
     protected $fillable = [
         'name_role',
         'mota',
-        'soluong',
+
 
 
     ];
@@ -21,6 +21,6 @@ class Role extends Model
 
     public function users()
     {
-        return $this->hasMany(Role::class, 'id');
+        return $this->hasMany(User::class, 'id');
     }
 }

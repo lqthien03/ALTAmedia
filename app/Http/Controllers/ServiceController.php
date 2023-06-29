@@ -75,6 +75,10 @@ class ServiceController extends Controller
     public function Detail_Service($id)
     {
         $services_id = Service::with(['status_activate', 'status_complete', 'progression'])->find($id);
-        return view('dichvu.detail_service', compact('services_id'));
+
+        $progressions_by_service = Progression::where('id_service', $services_id->id)->get();
+
+        // dd($progressions_by_service);
+        return view('dichvu.detail_service', compact('services_id','progressions_by_service'));
     }
 }

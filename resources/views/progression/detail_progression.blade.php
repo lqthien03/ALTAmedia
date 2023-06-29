@@ -44,7 +44,7 @@
                     <p></p>
                     <br>
                     <p>Nguồn cấp: {{$progression_id->supply->name_supply}}</p>
-                    <p>Trạng thái: {{$progression_id->progression->name_status}}</p>
+                    <p>Trạng thái: {{$progression_id->status->name_state}}</p>
                     <p>Số điện thoại: {{$progression_id->user->sdt}}</p>
                     <p>Địa chỉ Email: {{$progression_id->user->email}}</p>
                 </div>

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class RuleProgression extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $table = 'rule_progressions';
+    protected $fillable = [
         'is_auto_increase',
         'start_count',
         'end_count',
@@ -20,4 +21,9 @@ class RuleProgression extends Model
     ];
 
     public $timestamps = false;
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'id_service', 'id');
+    }
 }
