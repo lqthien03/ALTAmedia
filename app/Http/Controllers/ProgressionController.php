@@ -71,14 +71,14 @@ class ProgressionController extends Controller
         ]);
         // dd($progression);
         $option_service = Service::all();
-        $dataSuccess = [
-            'name_service' => $service->name_service,
-            'stt' => $nextCode,
-            'time_cap' => date($issuedAt),
-            'time_sudung' => date($expiredAt),
-        ];
+        // $dataSuccess = [
+        //     'name_service' => $service->name_service,
+        //     'stt' => $nextCode,
+        //     'time_cap' => date($issuedAt),
+        //     'time_sudung' => date($expiredAt),
+        // ];
 
-        return back()->with('dataSuccess', $dataSuccess);
+        return view('progression.add_progression', compact('option_service'))->with(['progression' => $progression]);
     }
 
 
@@ -86,5 +86,32 @@ class ProgressionController extends Controller
     {
         $progression_id = Progression::find($id);
         return view('progression.detail_progression', compact('progression_id'));
+    }
+
+    public function statis()
+    {
+        $year = Carbon::now()->year;
+        $month = Carbon::now()->month;
+        $progression = Progression::all();
+        $statis = [
+            '1' => Progression::whereDay('time_cap', 1)
+                ->whereMonth('time_cap', $month)
+                ->whereYear('time_cap', $year)
+                ->count(),
+
+            '7' => Progression::whereDay('time_cap', 7)
+                ->whereMonth('time_cap', $month)
+                ->whereYear('time_cap', $year)
+                ->count(),
+            '14' => Progression::whereDay('time_cap', 14)
+                ->whereMonth('time_cap', $month)
+                ->whereYear('time_cap', $year)
+                ->count(),
+            '21' => Progression::whereDay('time_cap', 21)
+                ->whereMonth('time_cap', $month)
+                ->whereYear('time_cap', $year)
+                ->count(),
+        ];
+        return response()->json($statis);
     }
 }

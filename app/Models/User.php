@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    public $table ="users";
+    public $table = "users";
     protected $fillable = [
         'name',
         'name_dangnhap',
@@ -31,7 +31,7 @@ class User extends Authenticatable
     protected $attributes = ['id_status_activate' => 1];
 
 
-    protected $guarded=[];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -57,10 +57,11 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class,'role_id','id');
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
-    public function status_activate(){
-        return $this->belongsTo(Status_activate::class,'id_status_activate','id');
+    public function status_activate()
+    {
+        return $this->belongsTo(Status_activate::class, 'id_status_activate', 'id');
     }
     public function progression()
     {

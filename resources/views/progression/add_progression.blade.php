@@ -16,7 +16,8 @@
                             <a href="/profile">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="{{ url('images/user.png') }}" alt="" style="width:50px">
+                                        <img src="{{ url('images/user2.png') }}" alt="" style="width:50px"
+                                class="rounded-circle">
                                     </div>
                                     <div class="col-9" style="line-height: 15px">
                                         <p>Xin chào</p>
@@ -52,29 +53,28 @@
             </form>
 
 
-            @if (session('dataSuccess'))
+            @if (isset($progression))
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Số thứ tự đã cấp</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="model-content">
+                            <div class="model-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    style="float: right">
                                     <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 style="color: #ffac6a">{{ $dataSuccess['stt'] }}</h4>
+                                </button><br>
+                                <h4 class="" id="exampleModalLongTitle"><b>Số thứ tự đã cấp</b></h4><br>
+                                <h4 style="color: #F86F03; font-size:30px; font-weight:700">{{ $progression->stt }}</h4><br>
+                                <p>DV:{{ $progression->name_service }} <b>(tại quầy số 1)</b></p>
+                                <br>
                             </div>
-                            <div class="modal-body">
-                                <p>DV:{{ $dataSuccess['name_service'] }} <b>(tại quầy số 1)</b></p>
+                            <div class="model-body">
+                                <br>
+                                <p>Thời gian cấp:{{ $progression->time_cap }}</p>
+                                <p>Hạn sử dụng:{{ $progression->time_sudung }}</p>
 
                             </div>
-                            <div class="modal-footer" style="background-color: #ffac6a">
-                                {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button> --}}
 
-                                <p>Thời gian cấp:{{ $dataSuccess['time_cap'] }}</p>
-                                <p>Hạn sử dụng:{{ $dataSuccess['time_sudung'] }}</p>
-                            </div>
                         </div>
                     </div>
                 </div>

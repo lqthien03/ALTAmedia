@@ -12,16 +12,18 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportController extends Controller
 {
-    public function ShowReport(){
-        $reports= Report::with(['progression','service','status_state','supply'])->get();
+    public function ShowReport()
+    {
+        $reports = Report::with(['progression', 'service', 'status_state', 'supply'])->get();
         // dd($reports);
-        return view('report.report',compact('reports'));
+        return view('report.report', compact('reports'));
     }
-    public function ExportPDF(){
-
-        $reports = Report::select('progression.id','service.name_service','progression.time_cap','status_state.name_state','supply.name_supply');
+    public function ExportPDF()
+    {
+        $reports = Report::get();
         // dd($reports);
-        $pdf = Pdf::loadView('report.export',['reports'=>$reports]);
+        $pdf = Pdf::loadView('report.export', ['reports' => $reports]);
+        // dd($pdf->);
         return $pdf->download('report.pdf');
     }
 }

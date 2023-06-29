@@ -15,7 +15,8 @@
                         <a href="/profile">
                             <div class="row">
                                 <div class="col-3">
-                                    <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                                    <img src="{{ url('images/user2.png') }}" alt="" style="width:50px"
+                                    class="rounded-circle">
                                 </div>
                                 <div class="col-9" style="line-height: 15px">
                                     <p>Xin chào</p>

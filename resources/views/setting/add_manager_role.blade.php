@@ -16,7 +16,8 @@
                             <a href="/profile">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                                        <img src="{{ url('images/user2.png') }}" alt="" style="width:50px"
+                                            class="rounded-circle">
                                     </div>
                                     <div class="col-9" style="line-height: 15px">
                                         <p>Xin chào</p>
@@ -30,18 +31,20 @@
             </div>
         </div>
         <h2>Danh sách vai trò</h2>
-        <form action="{{route('setting_role.store')}}" method="post">
+        <form action="{{ route('setting_role.store') }}" method="post">
             @csrf
             <div class="row box">
                 <h4>Thông tin vai trò</h4>
                 <div class="col-6">
                     <div class="mb-3 mt-3">
                         <label for="formGroupExampleInput" class="form-label"><b>Tên vai trò:</b></label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tên vai trò" name="name_role">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập tên vai trò"
+                            name="name_role">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label"><b>Mô tả</b></label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập mô tả" name="mota" style="height: 200px">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập mô tả"
+                            name="mota" style="height: 200px">
 
                     </div>
                     <p> * Là trường thông tin bắt buộc</p>
@@ -71,13 +74,16 @@
                 </div>
             </div>
             <div class="text-center mt-3">
-                <button type="button" class="btn btn-warning"> <a href="{{ route('setting.manager_role') }}">Hủy bỏ</a> </button>
+                <button type="button" class="btn btn-warning"> <a href="{{ route('setting.manager_role') }}">Hủy bỏ</a>
+                </button>
                 <button type="submit" class="btn btn-warning">Thêm vai trò</button>
             </div>
         </form>
-        @if ($errors->any())  @foreach ($errors->all() as $error)
-        {{ $error }}
-      @endforeach   @endif
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        @endif
 
     </div>
 

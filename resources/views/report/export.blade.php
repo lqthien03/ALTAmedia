@@ -50,7 +50,7 @@
             </tr>
         </thead>
 
-        @foreach($reports as $item)
+        @foreach ($reports as $item)
         <tr>
             <th scope="row">{{$item->progression->stt}}</th>
             <td>{{$item->service->name_service}}</td>
@@ -66,6 +66,7 @@
 </html> --}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,7 +87,8 @@
             width: 100%;
         }
 
-        #customers td, #customers th {
+        #customers td,
+        #customers th {
             border: 1px solid #ddd;
             padding: 8px;
         }
@@ -108,6 +110,7 @@
         }
     </style>
 </head>
+
 <body>
     <div>
         <h1>Bảng báo cáo cấp số</h1>
@@ -121,24 +124,18 @@
                     <th scope="col">Nguồn cấp</th>
                 </tr>
             </thead>
-            {{-- <tr>
-                <th scope="row">10210001</th>
-                <td>Khám tim mạch</td>
-                <td>14:35-07/11/2022</td>
-                <td>đang chờ</td>
-                <td>Nguồn cấp</td>
-            </tr> --}}
-            @foreach($reports as $item)
-            <tr>
-                <th scope="row">{{$item->progression->stt}}</th>
-                {{-- <td>{{$item->progression->ten_dich_vu}}</td> --}}
-                <td>{{$item->progression->time_cap}}</td>
-                <td>{{$item->status_state->name_state}}</td>
-                <td>{{$item->supply->name_supply}}</td>
-            </tr>
+
+            @foreach ($reports as $item)
+                <tr>
+                    <th scope="row">{{ $item->progression->stt }}</th>
+                    <td>{{ $item->progression->ten_dich_vu }}</td>
+                    <td>{{ $item->progression->time_cap }}</td>
+                    <td>{{ $item->status_state->name_state }}</td>
+                    <td>{{ $item->supply->name_supply }}</td>
+                </tr>
             @endforeach
         </table>
     </div>
 </body>
-</html>
 
+</html>

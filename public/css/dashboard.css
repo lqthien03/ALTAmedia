@@ -166,3 +166,46 @@ a {
     padding-right: 15px;
     border-radius: 15px;
 }
+
+.model-content {
+    text-align: center;
+    border-radius: 20px;
+    background-color: white;
+    width: 490px;
+}
+
+.model-header {
+    text-align: center;
+
+}
+
+.model-body {
+    background-color: #F29727;
+    font-size: 17px;
+    color: white;
+    border-radius: 0px 0px 17px 17px;
+    height: 120px;
+}
+
+.close {
+    border: none;
+    font-size: xx-large;
+    background-color: white;
+    border-radius: 50px;
+    width: 40px;
+}
+
+.overview {
+    box-shadow: 1px 1px 1px grey;
+    border-radius: 10px;
+
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.dashboard-state {
+    margin-left: -20px;
+    font-size: 14px;
+    padding-top: px;
+
+}

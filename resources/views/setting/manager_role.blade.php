@@ -16,7 +16,8 @@
                             <a href="/profile">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="{{url('images/user.png')}}" alt=""  style="width:50px">
+                                        <img src="{{ url('images/user2.png') }}" alt="" style="width:50px"
+                                            class="rounded-circle">
                                     </div>
                                     <div class="col-9" style="line-height: 15px">
                                         <p>Xin chào</p>
@@ -39,42 +40,41 @@
                     </div>
                     <div class="col-3">
                         <p style="margin-bottom: 5px">Từ khóa</p>
-                        <form class="d-flex text-center" role="search" >
+                        <form class="d-flex text-center" role="search">
                             <input class="form-control " type="search" placeholder="Search" aria-label="Search">
                         </form>
                     </div>
                 </div>
 
                 <table class="table rounded table-bordered mt-2 ">
-                    <thead  class="table-color">
+                    <thead class="table-color">
                         <tr>
-                        <th scope="col">Tên vai trò</th>
-                        <th scope="col">Số người dùng</th>
-                        <th scope="col">Mô tả</th>
-                        <th scope="col"></th>
+                            <th scope="col">Tên vai trò</th>
+                            <th scope="col">Số người dùng</th>
+                            <th scope="col">Mô tả</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($showsetting as $item)
-                        <tr>
-                        <th scope="row">{{$item->name_role}}</th>
-                        <td>{{$item->soluong}}</td>
-                        <td>{{$item->mota}}</td>
-                        <td><a href="/setting/edit_manager_role/{{$item->id}}">Cập nhật</a></td>
-                        </tr>
+                        @foreach ($showsetting as $item)
+                            <tr>
+                                <th scope="row">{{ $item->name_role }}</th>
+                                <td>{{ $item->users_count }}</td>
+                                <td>{{ $item->mota }}</td>
+                                <td><a href="/setting/edit_manager_role/{{ $item->id }}">Cập nhật</a></td>
+                            </tr>
                     </tbody>
                     @endforeach
-                    </table>
+                </table>
             </div>
             <div class="col-1">
                 <div class="right text-center">
-                    <a href="{{url('/setting/manager_role/add')}}" class="add">
-                        <i class='bx bxs-message-square-add bx-md mt-2' style='color:#ff9138' ></i>
+                    <a href="{{ url('/setting/manager_role/add') }}" class="add">
+                        <i class='bx bxs-message-square-add bx-md mt-2' style='color:#ff9138'></i>
                         <p>Thêm vai trò</p>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
