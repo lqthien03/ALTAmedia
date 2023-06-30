@@ -22,7 +22,7 @@ class Service extends Model
         'id_progression',
 
     ];
-    protected $attributes = ['id_status_activate' => 1, 'id_status_complete' => 1, 'id_progression' => 1];
+    protected $attributes = ['id_status_activate' => 1, 'id_status_complete' => 1, 'id_progression' => 102];
 
     public $timestamps = false;
 
@@ -36,7 +36,6 @@ class Service extends Model
     }
     public function progression()
     {
-        return $this->hasMany(Progression::class,'id');
+        return $this->hasMany(Progression::class, 'id');
     }
-
 }

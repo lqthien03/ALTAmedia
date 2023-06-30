@@ -31,7 +31,7 @@ class Report extends Model
     }
     public function status_state()
     {
-        return $this->belongsTo(Status_state::class, 'id');
+        return $this->belongsTo(Status_state::class, 'id_status_state', 'id');
     }
     public function supply()
     {

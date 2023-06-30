@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Nette\Utils\Random;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-
+use Termwind\Components\Dd;
 
 class ProgressionController extends Controller
 {
@@ -42,13 +42,13 @@ class ProgressionController extends Controller
 
         $request->validate([
             'id_service' => 'required|exists:services,id',
-            // 'id_user'=>'required|exists:users,id',
+
         ]);
         //số thứ tự
         $service = Service::find($request->id_service);
-        // dd($service);
 
-        $rule = RuleProgression::where('id_service',$service->id)->first();
+        // dd($service);
+        $rule = RuleProgression::where('id_service', $service->id)->first();
         // dd($rule);
         $last_progression = Progression::latest('id')->first();
         if ($rule->is_prefix == 1) {
@@ -87,7 +87,7 @@ class ProgressionController extends Controller
     {
         $progression_id = Progression::with(['user', 'supply', 'service', 'status'])->find($id);
 
-        
+
         return view('progression.detail_progression', compact('progression_id'));
     }
 

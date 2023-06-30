@@ -54,7 +54,7 @@ class SettingController extends Controller
         Diary::create([
             'username' => Auth::user()->name_dangnhap,
             'ip_address' => '123.123',
-            'action' => 'thêm role ' . $role->name_role,
+            'action' => 'thêm ' . $role->name_role,
             'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
         ]);
         return redirect()->route('setting.manager_role');

@@ -27,13 +27,13 @@ return new class extends Migration
                 table: 'options', indexName: 'progressions_id_option'
             );
 
-            // $table->foreignId('id_service')->constrained(
-            //     table: 'services', indexName: 'progressions_id_service'
-            // );
+            $table->foreignId('id_service')->constrained(
+                table: 'services', indexName: 'progressions_id_service'
+            );
 
-            // $table->foreignId('id_status_state')->constrained(
-            //     table: 'status_states', indexName: 'progressions_id_status_state'
-            // );
+            $table->foreignId('id_status_state')->constrained(
+                table: 'status_states', indexName: 'progressions_id_status_state'
+            );
 
         });
     }
